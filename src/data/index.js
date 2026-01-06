@@ -86,7 +86,195 @@ export const budgetQuickFacts = {
   ]
 };
 
-// Detailed sub-allocations for each sector (FY 2025-26)
+// Key Government Schemes with descriptions and official links
+export const keySchemeDetails = {
+  // Health Schemes
+  "Ayushman Bharat": {
+    name: "Ayushman Bharat - PM Jan Arogya Yojana",
+    shortName: "AB-PMJAY",
+    description: "World's largest health insurance scheme providing ₹5 lakh health cover to 50 Cr beneficiaries for secondary and tertiary care hospitalization.",
+    launched: "2018",
+    url: "https://pmjay.gov.in/",
+    category: "Health"
+  },
+  "PM Aatmanirbhar Swasth Bharat": {
+    name: "PM Aatmanirbhar Swasth Bharat Yojana",
+    shortName: "PMASBY",
+    description: "Launched with ₹64,180 Cr outlay to develop health infrastructure, labs, and surveillance systems across the country.",
+    launched: "2021",
+    url: "https://www.pmnrf.gov.in/",
+    category: "Health"
+  },
+  "NHM": {
+    name: "National Health Mission",
+    shortName: "NHM",
+    description: "Umbrella program for rural and urban health covering maternal health, immunization, and disease control programs.",
+    launched: "2013",
+    url: "https://nhm.gov.in/",
+    category: "Health"
+  },
+
+  // Education Schemes
+  "NEP 2020": {
+    name: "National Education Policy 2020",
+    shortName: "NEP",
+    description: "Comprehensive education reform focusing on foundational literacy, flexible curriculum, and multidisciplinary education from school to higher education.",
+    launched: "2020",
+    url: "https://www.education.gov.in/nep/",
+    category: "Education"
+  },
+  "Samagra Shiksha": {
+    name: "Samagra Shiksha Abhiyan",
+    shortName: "SSA",
+    description: "Integrated scheme for school education from pre-primary to class XII covering infrastructure, teachers, and quality improvement.",
+    launched: "2018",
+    url: "https://samagra.education.gov.in/",
+    category: "Education"
+  },
+  "PM-USHA": {
+    name: "PM Uchchatar Shiksha Abhiyan",
+    shortName: "PM-USHA",
+    description: "Scheme for higher education institutions to improve quality and access through infrastructure grants.",
+    launched: "2022",
+    url: "https://www.education.gov.in/",
+    category: "Education"
+  },
+
+  // Agriculture Schemes
+  "PM-KISAN": {
+    name: "PM Kisan Samman Nidhi",
+    shortName: "PM-KISAN",
+    description: "Direct income support of ₹6,000 per year to 11 Cr+ farmer families in three equal installments via DBT.",
+    launched: "2019",
+    url: "https://pmkisan.gov.in/",
+    category: "Agriculture"
+  },
+  "PM Fasal Bima": {
+    name: "PM Fasal Bima Yojana",
+    shortName: "PMFBY",
+    description: "Crop insurance scheme with low premium (2% kharif, 1.5% rabi) protecting farmers against crop failure due to natural calamities.",
+    launched: "2016",
+    url: "https://pmfby.gov.in/",
+    category: "Agriculture"
+  },
+  "Kisan Credit Card": {
+    name: "Kisan Credit Card Scheme",
+    shortName: "KCC",
+    description: "Provides farmers with credit up to ₹3 lakh at subsidized 4% interest rate for agricultural and allied needs.",
+    launched: "1998",
+    url: "https://www.nabard.org/",
+    category: "Agriculture"
+  },
+
+  // Rural Development
+  "PM Awas Yojana": {
+    name: "Pradhan Mantri Awas Yojana",
+    shortName: "PMAY",
+    description: "Housing for All scheme providing subsidy of ₹1.2-2.67 lakh for building pucca houses for rural and urban poor.",
+    launched: "2015",
+    url: "https://pmaymis.gov.in/",
+    category: "Housing"
+  },
+  "MGNREGA": {
+    name: "Mahatma Gandhi National Rural Employment Guarantee Act",
+    shortName: "MGNREGA",
+    description: "Guarantees 100 days of wage employment per year to rural households willing to do unskilled manual work.",
+    launched: "2005",
+    url: "https://nrega.nic.in/",
+    category: "Employment"
+  },
+  "Jal Jeevan Mission": {
+    name: "Jal Jeevan Mission",
+    shortName: "JJM",
+    description: "Aims to provide piped water supply (Har Ghar Jal) to all rural households by 2024. Over 14 Cr tap connections provided.",
+    launched: "2019",
+    url: "https://jaljeevanmission.gov.in/",
+    category: "Water"
+  },
+
+  // Social Welfare
+  "PM Ujjwala Yojana": {
+    name: "Pradhan Mantri Ujjwala Yojana",
+    shortName: "PMUY",
+    description: "Free LPG connections to BPL families, over 9.5 Cr connections provided to women for clean cooking fuel.",
+    launched: "2016",
+    url: "https://www.pmuy.gov.in/",
+    category: "Social Welfare"
+  },
+  "DBT": {
+    name: "Direct Benefit Transfer",
+    shortName: "DBT",
+    description: "Transfers government subsidies and benefits directly to beneficiary bank accounts, saving ₹2.7 lakh Cr from leakages.",
+    launched: "2013",
+    url: "https://dbtbharat.gov.in/",
+    category: "Governance"
+  },
+  "NFSA": {
+    name: "National Food Security Act",
+    shortName: "NFSA",
+    description: "Provides subsidized food grains (rice at ₹3/kg, wheat at ₹2/kg) to 80 Cr beneficiaries through PDS.",
+    launched: "2013",
+    url: "https://nfsa.gov.in/",
+    category: "Food Security"
+  },
+
+  // Infrastructure
+  "PM GatiShakti": {
+    name: "PM Gati Shakti National Master Plan",
+    shortName: "PM GatiShakti",
+    description: "₹100 lakh Cr integrated infrastructure plan for multimodal connectivity covering roads, railways, ports, and logistics.",
+    launched: "2021",
+    url: "https://pmgatishakti.gov.in/",
+    category: "Infrastructure"
+  },
+  "Bharatmala": {
+    name: "Bharatmala Pariyojana",
+    shortName: "Bharatmala",
+    description: "Mega highway development project to build 83,677 km of roads including economic corridors and border roads.",
+    launched: "2017",
+    url: "https://morth.nic.in/",
+    category: "Roads"
+  },
+  "Vande Bharat": {
+    name: "Vande Bharat Express",
+    shortName: "Vande Bharat",
+    description: "India's indigenous semi-high speed train with 180 km/h capability, 102 trains operational across the country.",
+    launched: "2019",
+    url: "https://indianrailways.gov.in/",
+    category: "Railways"
+  },
+
+  // Women Empowerment
+  "Lakhpati Didi": {
+    name: "Lakhpati Didi Scheme",
+    shortName: "Lakhpati Didi",
+    description: "Aims to enable 3 Cr women in Self-Help Groups to earn sustainable income of ₹1 lakh or more annually.",
+    launched: "2023",
+    url: "https://nrlm.gov.in/",
+    category: "Women Empowerment"
+  }
+};
+
+// Helper function to get scheme details
+export function getSchemeDetails(schemeName) {
+  // Try exact match first
+  if (keySchemeDetails[schemeName]) {
+    return keySchemeDetails[schemeName];
+  }
+
+  // Try partial match
+  const lowerName = schemeName.toLowerCase();
+  for (const [key, value] of Object.entries(keySchemeDetails)) {
+    if (key.toLowerCase().includes(lowerName) ||
+      value.shortName.toLowerCase().includes(lowerName) ||
+      value.name.toLowerCase().includes(lowerName)) {
+      return value;
+    }
+  }
+
+  return null;
+}
+
 export const sectorDetails = {
   defense: {
     id: "defense",

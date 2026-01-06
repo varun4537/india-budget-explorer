@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useBudget } from '../context/BudgetContext';
-import { getSectorDetails, getSectorTrend } from '../data';
+import { getSectorDetails, getSectorTrend, getSchemeDetails } from '../data';
 import { formatCurrency, formatPercent } from '../utils/formatters';
 import TrendLineChart from '../components/charts/TrendLineChart';
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, Tooltip, LabelList } from 'recharts';
@@ -57,6 +58,49 @@ const CustomTooltip = ({ active, payload }) => {
         </div>
     );
 };
+
+// Interactive Scheme Tag with expandable info
+function SchemeTag({ scheme }) {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const details = getSchemeDetails(scheme);
+
+    if (!details) {
+        // Fallback for schemes without detailed info
+        return <span className="scheme-tag scheme-tag-simple">{scheme}</span>;
+    }
+
+    return (
+        <div className={`scheme-tag-wrapper ${isExpanded ? 'expanded' : ''}`}>
+            <button
+                className="scheme-tag scheme-tag-interactive"
+                onClick={() => setIsExpanded(!isExpanded)}
+                aria-expanded={isExpanded}
+            >
+                {scheme}
+                <span className="scheme-toggle">{isExpanded ? '−' : '+'}</span>
+            </button>
+
+            {isExpanded && (
+                <div className="scheme-explainer">
+                    <h4 className="scheme-name">{details.name}</h4>
+                    <p className="scheme-description">{details.description}</p>
+                    <div className="scheme-meta">
+                        <span className="scheme-year">Launched: {details.launched}</span>
+                        <span className="scheme-category">{details.category}</span>
+                    </div>
+                    <a
+                        href={details.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="scheme-link"
+                    >
+                        Visit Official Website →
+                    </a>
+                </div>
+            )}
+        </div>
+    );
+}
 
 export default function SectorDetail() {
     const { sectorId } = useParams();
@@ -268,9 +312,15 @@ export default function SectorDetail() {
                         </div>
                         <div className="trend-arrow">
                             <span className="arrow-line"></span>
-                            <span className="arrow-growth">
-                                +{((trend[trend.length - 1].allocation / trend[0].allocation - 1) * 100).toFixed(0)}%
-                            </span>
+                            {(() => {
+                                const growthPercent = ((trend[trend.length - 1].allocation / trend[0].allocation - 1) * 100);
+                                const isPositive = growthPercent >= 0;
+                                return (
+                                    <span className={`arrow-growth ${isPositive ? 'growth-positive' : 'growth-negative'}`}>
+                                        {isPositive ? '+' : ''}{growthPercent.toFixed(0)}%
+                                    </span>
+                                );
+                            })()}
                         </div>
                         <div className="trend-stat">
                             <span className="trend-label">FY {fiscalYears[fiscalYears.length - 1]}</span>
@@ -306,9 +356,10 @@ export default function SectorDetail() {
                     {details.keySchemes.length > 0 && (
                         <div className="schemes-section">
                             <h3 className="schemes-title">Key Government Schemes</h3>
+                            <p className="schemes-hint">Click on a scheme to learn more →</p>
                             <div className="schemes-list">
                                 {details.keySchemes.map((scheme, index) => (
-                                    <span key={index} className="scheme-tag">{scheme}</span>
+                                    <SchemeTag key={index} scheme={scheme} />
                                 ))}
                             </div>
                         </div>
