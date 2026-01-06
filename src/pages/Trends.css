@@ -232,3 +232,42 @@
     color: var(--text-muted);
     font-size: var(--text-lg);
 }
+
+/* Section hint text */
+.section-hint {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-6);
+    margin-top: calc(-1 * var(--space-4));
+}
+
+/* Clickable sector trend card */
+.sector-trend-card-link {
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+}
+
+.sector-trend-card-link:hover {
+    border-color: var(--accent-gold, #c85a3a);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(200, 90, 58, 0.15);
+}
+
+.sector-trend-card-link:hover .card-cta {
+    opacity: 1;
+    color: var(--accent-gold, #c85a3a);
+}
+
+/* Card CTA button */
+.card-cta {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--border-subtle);
+    text-align: center;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-muted);
+    opacity: 0.7;
+    transition: all var(--transition-base);
+}

@@ -96,7 +96,8 @@ export default function Trends() {
 
                 {/* Individual Sector Cards */}
                 <section className="trends-section">
-                    <h2 className="section-title">Sector Deep Dive</h2>
+                    <h2 className="section-title">Sector Trend Comparison</h2>
+                    <p className="section-hint">Click on any sector to see full breakdown with schemes and sub-allocations →</p>
 
                     <div className="sector-trends-grid">
                         {sectorTrends.map(sector => {
@@ -105,7 +106,11 @@ export default function Trends() {
                             const growth = ((lastValue / firstValue - 1) * 100).toFixed(1);
 
                             return (
-                                <div key={sector.id} className="sector-trend-card">
+                                <a
+                                    key={sector.id}
+                                    href={`/sectors/${sector.id}`}
+                                    className="sector-trend-card sector-trend-card-link"
+                                >
                                     <div className="sector-trend-header">
                                         <span className="sector-icon">{sector.icon}</span>
                                         <h3 className="sector-name">{sector.name}</h3>
@@ -136,7 +141,9 @@ export default function Trends() {
                                             <span className="mini-value">{formatCurrency(lastValue)}</span>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div className="card-cta">View Full Analysis →</div>
+                                </a>
                             );
                         })}
                     </div>

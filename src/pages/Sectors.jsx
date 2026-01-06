@@ -56,13 +56,14 @@ export default function Sectors() {
                 {/* All Sectors Grid */}
                 <section className="all-sectors">
                     <h2 className="section-title">All Sectors (Sorted by Allocation)</h2>
+                    <p className="section-hint">Click on any sector to explore detailed breakdown →</p>
 
                     <div className="sectors-grid">
                         {sortedSectors.map((sector, index) => (
                             <SectorCard
                                 key={sector.id}
                                 sector={sector}
-                                linkToDetails={false}
+                                linkToDetails={true}
                                 animate={true}
                                 animationDelay={index * 50}
                             />

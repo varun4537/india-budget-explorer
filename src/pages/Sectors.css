@@ -79,6 +79,12 @@
 .all-sectors .section-title {
     font-size: var(--text-xl);
     font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.all-sectors .section-hint {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
     margin-bottom: var(--space-6);
 }
 
