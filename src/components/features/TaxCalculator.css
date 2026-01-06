@@ -1,0 +1,295 @@
+/* Tax Calculator Styles */
+
+.tax-calculator {
+    padding: var(--space-8) var(--space-4);
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .tax-calculator {
+        padding: var(--space-12) var(--space-6);
+    }
+}
+
+/* Header */
+.calc-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.calc-title {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-2);
+}
+
+.calc-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .calc-title {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Content Grid */
+.calc-content {
+    display: grid;
+    gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+    .calc-content {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+    }
+}
+
+/* Input Section */
+.calc-input-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+}
+
+.input-label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3);
+}
+
+/* Income Input */
+.income-input-wrapper {
+    display: flex;
+    align-items: center;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    transition: all var(--transition-fast);
+}
+
+.income-input-wrapper:focus-within {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.currency-prefix {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-muted);
+    margin-right: var(--space-2);
+}
+
+.income-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+    outline: none;
+}
+
+@media (min-width: 768px) {
+    .income-input {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Range Slider */
+.income-slider {
+    width: 100%;
+    height: 8px;
+    margin: var(--space-6) 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    outline: none;
+}
+
+.income-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-fast);
+}
+
+.income-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.income-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Preset Buttons */
+.preset-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-6);
+}
+
+.preset-btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.preset-btn:hover {
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.preset-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
+/* Tax Summary */
+.tax-summary {
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+}
+
+.tax-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2) 0;
+}
+
+.tax-summary-row:not(:last-child) {
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.summary-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.summary-value {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+}
+
+/* Breakdown Section */
+.calc-breakdown-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+}
+
+.breakdown-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Sector List */
+.sector-breakdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.breakdown-sector-item {
+    animation: fadeInUp 0.3s ease-out backwards;
+}
+
+.sector-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.sector-icon {
+    font-size: var(--text-lg);
+}
+
+.sector-name {
+    flex: 1;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sector-share {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    font-family: var(--font-mono);
+    color: var(--text-primary);
+}
+
+.sector-bar-container {
+    height: 6px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.sector-bar {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.5s ease-out;
+}
+
+/* No Tax Message */
+.no-tax-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-6);
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: var(--radius-xl);
+    margin-top: var(--space-4);
+}
+
+.no-tax-icon {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-3);
+}
+
+.no-tax-message p {
+    color: var(--success);
+    margin-bottom: 0;
+}

@@ -1,0 +1,206 @@
+/* Gainers & Losers Styles */
+
+.gainers-losers {
+    padding: var(--space-8) var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .gainers-losers {
+        padding: var(--space-12) var(--space-6);
+    }
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-8);
+}
+
+.section-title {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-2);
+}
+
+.title-icon {
+    font-size: var(--text-3xl);
+}
+
+.section-subtitle {
+    font-size: var(--text-base);
+    color: var(--text-muted);
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: var(--text-3xl);
+    }
+}
+
+/* Grid Layout */
+.gl-grid {
+    display: grid;
+    gap: var(--space-6);
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .gl-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+    }
+}
+
+/* Columns */
+.gl-column {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-5);
+}
+
+@media (min-width: 768px) {
+    .gl-column {
+        padding: var(--space-6);
+    }
+}
+
+.gl-gainers {
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.gl-losers {
+    border-color: rgba(239, 68, 68, 0.15);
+}
+
+.gl-column-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.gl-icon {
+    font-size: var(--text-xl);
+}
+
+/* List */
+.gl-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+/* Items */
+.gl-item {
+    padding: var(--space-4);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+}
+
+.gl-item:hover {
+    background: var(--bg-card-hover);
+    transform: translateX(4px);
+}
+
+.gl-item-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.gl-item-icon {
+    font-size: var(--text-2xl);
+}
+
+.gl-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.gl-item-name {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gl-item-amount {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+}
+
+/* Change Indicator */
+.gl-item-change {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-sm);
+}
+
+.gl-item-change.positive {
+    color: var(--success);
+}
+
+.gl-item-change.negative {
+    color: var(--error);
+}
+
+.gl-item-change.neutral {
+    color: var(--text-muted);
+}
+
+.change-arrow {
+    font-size: var(--text-xs);
+}
+
+.change-percent {
+    font-weight: var(--font-bold);
+}
+
+.change-absolute {
+    font-size: var(--text-xs);
+    color: var(--text-muted);
+}
+
+/* Progress Bar */
+.gl-progress-bar {
+    height: 4px;
+    background: var(--bg-primary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.gl-progress {
+    height: 100%;
+    border-radius: var(--radius-full);
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.gl-progress.positive {
+    background: linear-gradient(90deg, var(--success), #34d399);
+}
+
+.gl-progress.negative {
+    background: linear-gradient(90deg, var(--error), #f87171);
+}
+
+.gl-progress.neutral {
+    background: var(--text-muted);
+}
