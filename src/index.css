@@ -1,12 +1,29 @@
 /* ============================================
    INDIA BUDGET EXPLORER - DESIGN SYSTEM
    Mobile-First Modern Dark Theme with Indian Cultural Motifs
+   Madhubani/Warli Art Inspired
    ============================================ */
 
 /* ============================================
    CSS CUSTOM PROPERTIES
    ============================================ */
 :root {
+  /* Indian Art Color Palette */
+  --primary-bg: #1a1f3a;
+  /* Deep Indigo - main background */
+  --secondary-bg: #f5f1e8;
+  /* Warm Cream - text areas */
+  --accent-gold: #c85a3a;
+  /* Rust Gold - primary accent */
+  --accent-terra: #b55d3b;
+  /* Terracotta - secondary accent */
+  --accent-purple: #6b2d54;
+  /* Deep Purple - heritage */
+  --accent-green: #2d5016;
+  /* Forest Green - stability */
+  --accent-blue: #87ceeb;
+  /* Sky Blue - development */
+
   /* India Tricolor Palette */
   --saffron: #FF9933;
   --saffron-light: #FFB366;
@@ -499,6 +516,9 @@ a:hover {
   padding: 1px;
   background: linear-gradient(135deg, transparent 0%, rgba(255, 153, 51, 0.1) 50%, transparent 100%);
   -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;

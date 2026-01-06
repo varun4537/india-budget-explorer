@@ -549,7 +549,6 @@ export const budgetData = {
     sectors: [
       { id: "defense", name: "Defense", allocation: 682370, color: "#f43f5e", icon: "🛡️" },
       { id: "healthcare", name: "Health & Family Welfare", allocation: 99507, color: "#10b981", icon: "🏥" },
-      { id: "healthcare", name: "Health & Family Welfare", allocation: 99507, color: "#10b981", icon: "🏥" },
       { id: "education", name: "Education", allocation: 131735, color: "#f59e0b", icon: "📚" },
       { id: "infrastructure", name: "Roads & Highways", allocation: 296000, color: "#06b6d4", icon: "🛣️" },
       { id: "railways", name: "Railways", allocation: 272000, color: "#8b5cf6", icon: "🚂" },
