@@ -2,9 +2,14 @@
 
 An interactive visualization tool to explore India's Union Budget. Understand where your tax money goes with beautiful charts, real-time insights, and comprehensive budget breakdowns.
 
+### 🔗 [Live Demo](https://india-budget-explorer.vercel.app/)
+
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-6-646CFF?logo=vite)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+---
 
 ## ✨ Features
 
