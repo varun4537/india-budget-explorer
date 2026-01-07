@@ -13,7 +13,8 @@ export default function Header() {
         { path: '/trends', label: 'Trends', icon: '📈' },
         { path: '/sectors', label: 'Sectors', icon: '🏛️' },
         { path: '/compare', label: 'Compare', icon: '⚖️' },
-        { path: '/calculator', label: 'Your Share', icon: '💰' }
+        { path: '/calculator', label: 'Your Share', icon: '💰' },
+        { path: '/budget-buddy', label: 'Ask AI', icon: '🤖' }
     ];
 
     const isActive = (path) => location.pathname === path;

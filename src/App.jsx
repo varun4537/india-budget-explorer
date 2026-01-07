@@ -8,6 +8,7 @@ import Sectors from './pages/Sectors';
 import SectorDetail from './pages/SectorDetail';
 import Compare from './pages/Compare';
 import Calculator from './pages/Calculator';
+import BudgetBuddy from './pages/BudgetBuddy';
 import './App.css';
 
 // ScrollToTop component - resets scroll position on route change
@@ -34,6 +35,7 @@ function AppContent() {
           <Route path="/sectors/:sectorId" element={<SectorDetail />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/calculator" element={<Calculator />} />
+          <Route path="/budget-buddy" element={<BudgetBuddy />} />
         </Routes>
       </main>
       <footer className="footer">
