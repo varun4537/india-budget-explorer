@@ -125,7 +125,9 @@ export default function TaxCalculator() {
                                 style={{ animationDelay: `${index * 50}ms` }}
                             >
                                 <div className="sector-row">
-                                    <span className="sector-icon">{sector.icon}</span>
+                                    <span className="sector-icon">
+                                        {(() => { const Icon = sector.icon; return Icon && <Icon size={20} />; })()}
+                                    </span>
                                     <span className="sector-name">{sector.name}</span>
                                     <span className="sector-share">
                                         ₹{formatIncome(sector.yourShare)}

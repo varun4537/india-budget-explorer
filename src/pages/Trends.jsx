@@ -112,7 +112,9 @@ export default function Trends() {
                                     className="sector-trend-card sector-trend-card-link"
                                 >
                                     <div className="sector-trend-header">
-                                        <span className="sector-icon">{sector.icon}</span>
+                                        <span className="sector-icon">
+                                            {(() => { const Icon = sector.icon; return Icon && <Icon size={20} />; })()}
+                                        </span>
                                         <h3 className="sector-name">{sector.name}</h3>
                                         <span
                                             className={`growth-badge ${parseFloat(growth) >= 0 ? 'positive' : 'negative'}`}

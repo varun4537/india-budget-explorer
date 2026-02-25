@@ -33,7 +33,9 @@ export default function GainersLosers() {
                                 style={{ animationDelay: `${index * 100}ms` }}
                             >
                                 <div className="gl-item-header">
-                                    <span className="gl-item-icon">{sector.icon}</span>
+                                    <span className="gl-item-icon">
+                                        {(() => { const Icon = sector.icon; return Icon && <Icon size={24} />; })()}
+                                    </span>
                                     <div className="gl-item-info">
                                         <span className="gl-item-name">{sector.name}</span>
                                         <span className="gl-item-amount">{formatCurrency(sector.allocation)}</span>
@@ -74,7 +76,9 @@ export default function GainersLosers() {
                                 style={{ animationDelay: `${index * 100 + 300}ms` }}
                             >
                                 <div className="gl-item-header">
-                                    <span className="gl-item-icon">{sector.icon}</span>
+                                    <span className="gl-item-icon">
+                                        {(() => { const Icon = sector.icon; return Icon && <Icon size={24} />; })()}
+                                    </span>
                                     <div className="gl-item-info">
                                         <span className="gl-item-name">{sector.name}</span>
                                         <span className="gl-item-amount">{formatCurrency(sector.allocation)}</span>

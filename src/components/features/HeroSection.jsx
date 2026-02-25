@@ -201,7 +201,9 @@ export default function HeroSection() {
                                     style={{ animationDelay: `${index * 50}ms` }}
                                 >
                                     <div className="breakdown-header">
-                                        <span className="breakdown-icon">{sector.icon}</span>
+                                        <span className="breakdown-icon">
+                                            {(() => { const Icon = sector.icon; return Icon && <Icon size={16} />; })()}
+                                        </span>
                                         <span className="breakdown-name">{sector.name}</span>
                                         <div className="breakdown-values">
                                             {changeText && (

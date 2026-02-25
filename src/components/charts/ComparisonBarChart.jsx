@@ -27,7 +27,9 @@ export default function ComparisonBarChart({
             return (
                 <div className="chart-tooltip">
                     <div className="tooltip-header">
-                        {data.icon && <span className="tooltip-icon">{data.icon}</span>}
+                        <span className="tooltip-icon">
+                            {(() => { const Icon = data.icon; return Icon && <Icon size={16} />; })()}
+                        </span>
                         <span className="tooltip-name">{data[nameKey]}</span>
                     </div>
                     <div className="tooltip-value">{formatCurrency(data[dataKey])}</div>

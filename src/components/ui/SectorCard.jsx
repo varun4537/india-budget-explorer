@@ -11,7 +11,7 @@ export default function SectorCard({
     animate = false,
     animationDelay = 0
 }) {
-    const { id, name, allocation, color, icon, previousAllocation, changePercent, percentage } = sector;
+    const { id, name, allocation, color, icon: Icon, previousAllocation, changePercent, percentage } = sector;
 
     const change = previousAllocation
         ? ((allocation - previousAllocation) / previousAllocation * 100)
@@ -26,7 +26,7 @@ export default function SectorCard({
             }}
         >
             <div className="sector-card__header">
-                <span className="sector-card__icon">{icon}</span>
+                <span className="sector-card__icon">{Icon && <Icon size={24} />}</span>
                 <div className="sector-card__color-bar" />
             </div>
 

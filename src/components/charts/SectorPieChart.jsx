@@ -23,7 +23,9 @@ export default function SectorPieChart({
             return (
                 <div className="chart-tooltip">
                     <div className="tooltip-header">
-                        <span className="tooltip-icon">{data.icon}</span>
+                        <span className="tooltip-icon">
+                            {(() => { const Icon = data.icon; return Icon && <Icon size={16} />; })()}
+                        </span>
                         <span className="tooltip-name">{data.name}</span>
                     </div>
                     <div className="tooltip-value">{formatCurrency(data.allocation)}</div>

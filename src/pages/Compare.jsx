@@ -115,7 +115,9 @@ export default function Compare() {
                                 style={{ animationDelay: `${index * 30}ms` }}
                             >
                                 <div className="col-sector">
-                                    <span className="sector-icon">{sector.icon}</span>
+                                    <span className="sector-icon">
+                                        {(() => { const Icon = sector.icon; return Icon && <Icon size={20} />; })()}
+                                    </span>
                                     <span className="sector-name">{sector.name}</span>
                                 </div>
                                 <div className="col-year">
