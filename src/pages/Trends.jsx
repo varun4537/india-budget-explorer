@@ -21,8 +21,9 @@ export default function Trends() {
         };
     });
 
-    // Prepare multi-line data
-    const multiLineData = fiscalYears.map(year => {
+    // Prepare multi-line data map over all years available in trends
+    const trendYears = sectorTrends[0]?.data.map(d => d.year) || fiscalYears;
+    const multiLineData = trendYears.map(year => {
         const result = { year };
         sectorTrends.forEach(sector => {
             const yearData = sector.data.find(d => d.year === year);
@@ -61,7 +62,7 @@ export default function Trends() {
                         <div className="trend-stat">
                             <span className="stat-label">Starting Budget</span>
                             <span className="stat-value">₹{(budgetTrend[0].total / 100000).toFixed(2)}L Cr</span>
-                            <span className="stat-year">FY {fiscalYears[0]}</span>
+                            <span className="stat-year">FY {budgetTrend[0]?.year}</span>
                         </div>
                         <div className="trend-stat trend-stat-arrow">
                             <span className="arrow-icon">→</span>
@@ -134,12 +135,12 @@ export default function Trends() {
 
                                     <div className="sector-trend-stats">
                                         <div className="mini-stat">
-                                            <span className="mini-label">FY {fiscalYears[0]}</span>
+                                            <span className="mini-label">FY {sector.data[0]?.year}</span>
                                             <span className="mini-value">{formatCurrency(firstValue)}</span>
                                         </div>
                                         <span className="mini-arrow">→</span>
                                         <div className="mini-stat">
-                                            <span className="mini-label">FY {fiscalYears[fiscalYears.length - 1]}</span>
+                                            <span className="mini-label">FY {sector.data[sector.data.length - 1]?.year}</span>
                                             <span className="mini-value">{formatCurrency(lastValue)}</span>
                                         </div>
                                     </div>

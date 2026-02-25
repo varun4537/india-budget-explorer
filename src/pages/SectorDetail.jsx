@@ -300,7 +300,7 @@ export default function SectorDetail() {
                             5-Year Trend
                         </h2>
                         <p className="section-subtitle">
-                            How {details.name} allocation has changed from FY {fiscalYears[0]} to FY {fiscalYears[fiscalYears.length - 1]}
+                            How {details.name} allocation has changed from FY {trend[0].year} to FY {trend[trend.length - 1].year}
                         </p>
                     </div>
 
@@ -314,7 +314,7 @@ export default function SectorDetail() {
 
                     <div className="trend-stats">
                         <div className="trend-stat">
-                            <span className="trend-label">FY {fiscalYears[0]}</span>
+                            <span className="trend-label">FY {trend[0].year}</span>
                             <span className="trend-value">{formatCurrency(trend[0].allocation)}</span>
                         </div>
                         <div className="trend-arrow">
@@ -330,7 +330,7 @@ export default function SectorDetail() {
                             })()}
                         </div>
                         <div className="trend-stat">
-                            <span className="trend-label">FY {fiscalYears[fiscalYears.length - 1]}</span>
+                            <span className="trend-label">FY {trend[trend.length - 1].year}</span>
                             <span className="trend-value">{formatCurrency(trend[trend.length - 1].allocation)}</span>
                         </div>
                     </div>

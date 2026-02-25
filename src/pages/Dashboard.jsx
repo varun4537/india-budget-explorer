@@ -328,9 +328,22 @@ export default function Dashboard() {
                                     <span className="indicator-value">{indicator.value}</span>
                                     <span className="indicator-name">{indicator.name}</span>
                                 </div>
-                                <span className={`indicator-trend trend-${indicator.trend}`}>
-                                    {indicator.trend === 'up' ? <TrendingUp size={20} /> : indicator.trend === 'down' ? <TrendingDown size={20} /> : '→'}
-                                </span>
+                                {(() => {
+                                    const invertedNames = ['Inflation (CPI)', 'Fiscal Deficit', 'Debt-to-GDP'];
+                                    const isInverted = invertedNames.includes(indicator.name);
+                                    let colorClass = 'trend-stable';
+                                    if (indicator.trend === 'up') {
+                                        colorClass = isInverted ? 'trend-down' : 'trend-up';
+                                    } else if (indicator.trend === 'down') {
+                                        colorClass = isInverted ? 'trend-up' : 'trend-down';
+                                    }
+
+                                    return (
+                                        <span className={`indicator-trend ${colorClass}`}>
+                                            {indicator.trend === 'up' ? <TrendingUp size={20} /> : indicator.trend === 'down' ? <TrendingDown size={20} /> : '→'}
+                                        </span>
+                                    );
+                                })()}
                             </div>
                         ))}
                     </div>
@@ -349,7 +362,7 @@ export default function Dashboard() {
                             5-Year Budget Trend
                         </h2>
                         <p className="section-subtitle">
-                            India's total budget allocation from FY {fiscalYears[0]} to {fiscalYears[fiscalYears.length - 1]}
+                            India's total budget allocation from FY {getTotalBudgetTrend()[0].year} to {getTotalBudgetTrend()[getTotalBudgetTrend().length - 1].year}
                         </p>
                     </div>
 
