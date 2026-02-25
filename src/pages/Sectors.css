@@ -1,0 +1,113 @@
+/* Sectors Page Styles */
+
+.sectors-page {
+    padding: var(--space-6) 0 var(--space-12);
+}
+
+@media (min-width: 768px) {
+    .sectors-page {
+        padding: var(--space-8) 0 var(--space-16);
+    }
+}
+
+/* Overview Section */
+.sectors-overview {
+    display: grid;
+    gap: var(--space-8);
+    margin-bottom: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+    .sectors-overview {
+        grid-template-columns: 400px 1fr;
+        align-items: center;
+    }
+}
+
+.overview-chart {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+}
+
+.overview-stats {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 1024px) {
+    .overview-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+.overview-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--space-4);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+}
+
+@media (min-width: 1024px) {
+    .overview-stat {
+        flex-direction: row;
+        gap: var(--space-4);
+        text-align: left;
+    }
+}
+
+.stat-number {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-extrabold);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* All Sectors */
+.all-sectors {
+    margin-bottom: var(--space-8);
+}
+
+.all-sectors .section-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+}
+
+.all-sectors .section-hint {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-bottom: var(--space-6);
+}
+
+.sectors-grid {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .sectors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .sectors-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .sectors-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

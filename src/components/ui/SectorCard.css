@@ -1,0 +1,166 @@
+/* SectorCard Styles */
+
+.sector-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+.sector-card-link:focus-visible {
+    outline: 2px solid var(--saffron, #FF9933);
+    outline-offset: 2px;
+    border-radius: var(--radius-xl);
+}
+
+.sector-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4);
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.sector-card:hover {
+    border-color: var(--sector-color, var(--border-light));
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg), 0 0 30px rgba(var(--sector-color), 0.1);
+}
+
+/* Header */
+.sector-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+}
+
+.sector-card__icon {
+    font-size: var(--text-2xl);
+}
+
+.sector-card__color-bar {
+    width: 40px;
+    height: 4px;
+    background: var(--sector-color);
+    border-radius: var(--radius-full);
+    opacity: 0.7;
+}
+
+/* Body */
+.sector-card__body {
+    flex: 1;
+}
+
+.sector-card__name {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-1);
+    line-height: var(--leading-snug);
+}
+
+.sector-card__amount {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+}
+
+/* Meta */
+.sector-card__meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+    font-size: var(--text-xs);
+}
+
+.sector-card__percentage {
+    color: var(--text-muted);
+}
+
+.sector-card__change {
+    font-weight: var(--font-semibold);
+}
+
+.sector-card__change.positive {
+    color: var(--success);
+}
+
+.sector-card__change.negative {
+    color: var(--error);
+}
+
+/* Arrow */
+.sector-card__arrow {
+    position: absolute;
+    bottom: var(--space-4);
+    right: var(--space-4);
+    font-size: var(--text-lg);
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all var(--transition-fast);
+}
+
+.sector-card:hover .sector-card__arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--sector-color);
+}
+
+/* Sizes */
+.sector-card--compact {
+    padding: var(--space-3);
+}
+
+.sector-card--compact .sector-card__icon {
+    font-size: var(--text-xl);
+}
+
+.sector-card--compact .sector-card__amount {
+    font-size: var(--text-lg);
+}
+
+.sector-card--large {
+    padding: var(--space-6);
+}
+
+.sector-card--large .sector-card__name {
+    font-size: var(--text-base);
+}
+
+.sector-card--large .sector-card__amount {
+    font-size: var(--text-2xl);
+}
+
+/* Hover glow effect */
+.sector-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right,
+            var(--sector-color) 0%,
+            transparent 60%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.sector-card:hover::before {
+    opacity: 0.05;
+}
+
+@media (min-width: 768px) {
+    .sector-card {
+        padding: var(--space-5);
+    }
+
+    .sector-card__amount {
+        font-size: var(--text-2xl);
+    }
+}

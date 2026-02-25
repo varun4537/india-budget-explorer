@@ -1,0 +1,1014 @@
+/* ============================================
+   INDIA BUDGET EXPLORER - DESIGN SYSTEM
+   Mobile-First Modern Dark Theme with Indian Cultural Motifs
+   Madhubani/Warli Art Inspired
+   ============================================ */
+
+/* ============================================
+   CSS CUSTOM PROPERTIES
+   ============================================ */
+:root {
+  /* Indian Art Color Palette */
+  --primary-bg: #1a1f3a;
+  /* Deep Indigo - main background */
+  --secondary-bg: #f5f1e8;
+  /* Warm Cream - text areas */
+  --accent-gold: #c85a3a;
+  /* Rust Gold - primary accent */
+  --accent-terra: #b55d3b;
+  /* Terracotta - secondary accent */
+  --accent-purple: #6b2d54;
+  /* Deep Purple - heritage */
+  --accent-green: #2d5016;
+  /* Forest Green - stability */
+  --accent-blue: #87ceeb;
+  /* Sky Blue - development */
+
+  /* India Tricolor Palette */
+  --saffron: #FF9933;
+  --saffron-light: #FFB366;
+  --saffron-dark: #E67300;
+  --india-green: #138808;
+  --india-green-light: #2ECC40;
+  --navy-blue: #000080;
+  --chakra-blue: #0066CC;
+  --maroon: #800000;
+  --cream: #FFF5E1;
+  --gold: #D4AF37;
+
+  /* Primary Colors - Inspired by Indian aesthetics */
+  --primary: #FF9933;
+  --primary-light: #FFB366;
+  --primary-dark: #E67300;
+  --primary-glow: rgba(255, 153, 51, 0.3);
+
+  /* Secondary - Peacock Blue */
+  --secondary: #06b6d4;
+  --secondary-light: #22d3ee;
+  --secondary-dark: #0891b2;
+
+  /* Sector Colors - Vibrant Indian palette */
+  --defense: #f43f5e;
+  --healthcare: #10b981;
+  --education: #f59e0b;
+  --infrastructure: #06b6d4;
+  --agriculture: #84cc16;
+  --social: #a855f7;
+  --finance: #ec4899;
+  --science: #8b5cf6;
+  --rural: #22c55e;
+  --urban: #14b8a6;
+
+  /* Semantic Colors */
+  --success: #138808;
+  --success-light: #2ECC40;
+  --warning: #f59e0b;
+  --error: #DC3545;
+  --info: #0066CC;
+
+  /* Dark Theme - Backgrounds with warm undertones */
+  --bg-primary: #0D0D0D;
+  --bg-secondary: #1A1A1A;
+  --bg-card: #262626;
+  --bg-card-hover: #333333;
+  --bg-elevated: #2D2D2D;
+
+  /* Dark Theme - Glass Effect */
+  --glass-bg: rgba(38, 38, 38, 0.85);
+  --glass-border: rgba(255, 153, 51, 0.15);
+
+  /* Text Colors */
+  --text-primary: #FAFAFA;
+  --text-secondary: #A3A3A3;
+  --text-muted: #737373;
+  --text-accent: #FF9933;
+
+  /* Borders with warm tint */
+  --border-subtle: rgba(255, 153, 51, 0.08);
+  --border-light: rgba(255, 153, 51, 0.2);
+  --border-accent: rgba(255, 153, 51, 0.4);
+
+  /* Indian-Inspired Gradients */
+  --gradient-primary: linear-gradient(135deg, #FF9933 0%, #FF6B00 100%);
+  --gradient-tricolor: linear-gradient(180deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+  --gradient-chakra: linear-gradient(135deg, #0066CC 0%, #004499 100%);
+  --gradient-success: linear-gradient(135deg, #138808 0%, #2ECC40 100%);
+  --gradient-warm: linear-gradient(135deg, #FF9933 0%, #DC3545 100%);
+  --gradient-peacock: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+  --gradient-lotus: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(255, 153, 51, 0.12) 0%, transparent 60%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 153, 51, 0.03) 0%, transparent 100%);
+
+  /* Shadows with warm glow */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 40px rgba(255, 153, 51, 0.2);
+  --shadow-saffron: 0 0 30px rgba(255, 153, 51, 0.3);
+
+  /* Spacing Scale (4px base) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Font Sizes (Mobile First) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-Index Scale */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+
+  /* Container */
+  --container-max: 1280px;
+  --container-padding: var(--space-4);
+}
+
+/* Light Theme Override */
+[data-theme="light"] {
+  --bg-primary: #FFF9F0;
+  --bg-secondary: #FFF5E6;
+  --bg-card: #FFFFFF;
+  --bg-card-hover: #FFF0DB;
+  --bg-elevated: #FFFFFF;
+
+  --glass-bg: rgba(255, 255, 255, 0.9);
+  --glass-border: rgba(255, 153, 51, 0.2);
+
+  --text-primary: #1A1A1A;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+
+  --border-subtle: rgba(255, 153, 51, 0.1);
+  --border-light: rgba(255, 153, 51, 0.25);
+
+  --shadow-sm: 0 2px 4px rgba(255, 153, 51, 0.1);
+  --shadow-md: 0 4px 12px rgba(255, 153, 51, 0.15);
+  --shadow-lg: 0 8px 24px rgba(255, 153, 51, 0.2);
+
+  --gradient-hero: linear-gradient(180deg, rgba(255, 153, 51, 0.08) 0%, transparent 50%);
+  --gradient-card: linear-gradient(180deg, rgba(255, 153, 51, 0.02) 0%, transparent 100%);
+}
+
+/* ============================================
+   RESET & BASE STYLES
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Indian Cultural Background Pattern - Rangoli inspired */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255, 153, 51, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(19, 136, 8, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(0, 102, 204, 0.05) 0%, transparent 35%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Subtle Rangoli Pattern Overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FF9933' fill-opacity='1'%3E%3Cpath d='M40 0L40 20M40 60L40 80M0 40L20 40M60 40L80 40M11.72 11.72L25.86 25.86M54.14 54.14L68.28 68.28M11.72 68.28L25.86 54.14M54.14 25.86L68.28 11.72' stroke='%23FF9933' stroke-width='0.5' fill='none'/%3E%3Ccircle cx='40' cy='40' r='8' fill='none' stroke='%23FF9933' stroke-width='0.5'/%3E%3Ccircle cx='40' cy='40' r='16' fill='none' stroke='%23FF9933' stroke-width='0.3'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+h4 {
+  font-size: var(--text-lg);
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: var(--text-4xl);
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+  }
+
+  h3 {
+    font-size: var(--text-2xl);
+  }
+
+  h4 {
+    font-size: var(--text-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: var(--text-5xl);
+  }
+
+  h2 {
+    font-size: var(--text-4xl);
+  }
+}
+
+p {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+a {
+  color: var(--primary-light);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* Indian accent text */
+.text-saffron {
+  color: var(--saffron);
+}
+
+.text-tricolor {
+  background: var(--gradient-tricolor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--space-6);
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Flex utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-1 {
+  gap: var(--space-1);
+}
+
+.gap-2 {
+  gap: var(--space-2);
+}
+
+.gap-3 {
+  gap: var(--space-3);
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}
+
+.gap-8 {
+  gap: var(--space-8);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Text utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-sm {
+  font-size: var(--text-sm);
+}
+
+.text-xs {
+  font-size: var(--text-xs);
+}
+
+.text-lg {
+  font-size: var(--text-lg);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-accent {
+  color: var(--text-accent);
+}
+
+.font-medium {
+  font-weight: var(--font-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-bold);
+}
+
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
+/* Cards with Indian motif border */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4);
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 153, 51, 0.1) 50%, transparent 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), 0 0 20px rgba(255, 153, 51, 0.1);
+}
+
+.card-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: var(--space-6);
+  }
+}
+
+/* Indian accent border decoration */
+.border-accent-top {
+  position: relative;
+}
+
+.border-accent-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Buttons with Indian styling */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  line-height: 1;
+  border: none;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  box-shadow: var(--shadow-sm), 0 0 20px var(--primary-glow);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md), var(--shadow-saffron);
+}
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-card-hover);
+  border-color: var(--primary);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+/* Tags / Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+}
+
+.badge-success {
+  background: rgba(19, 136, 8, 0.15);
+  color: var(--success);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+}
+
+.badge-error {
+  background: rgba(220, 53, 69, 0.15);
+  color: var(--error);
+}
+
+.badge-saffron {
+  background: rgba(255, 153, 51, 0.15);
+  color: var(--saffron);
+}
+
+/* Stat display */
+.stat-value {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-extrabold);
+  line-height: 1;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+@media (min-width: 768px) {
+  .stat-value {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* Currency display */
+.currency {
+  font-family: var(--font-mono);
+  font-weight: var(--font-semibold);
+}
+
+.currency-symbol {
+  color: var(--saffron);
+  font-size: 0.85em;
+}
+
+/* Change indicators */
+.change-positive {
+  color: var(--success);
+}
+
+.change-negative {
+  color: var(--error);
+}
+
+.change-neutral {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   INDIAN DECORATIVE ELEMENTS
+   ============================================ */
+
+/* Lotus Divider */
+.lotus-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin: var(--space-8) 0;
+}
+
+.lotus-divider::before,
+.lotus-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+}
+
+.lotus-divider .lotus-icon {
+  font-size: var(--text-2xl);
+  color: var(--saffron);
+  opacity: 0.7;
+}
+
+/* Chakra Spinner */
+.chakra-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-subtle);
+  border-top-color: var(--chakra-blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Section Decorative Header */
+.section-decorated {
+  position: relative;
+  padding-top: var(--space-2);
+}
+
+.section-decorated::before {
+  content: '◈';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--text-sm);
+  color: var(--saffron);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(255, 153, 51, 0.4);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn var(--transition-slow) ease-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp var(--transition-slow) ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight var(--transition-slow) ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Stagger delays for lists */
+.stagger-1 {
+  animation-delay: 50ms;
+}
+
+.stagger-2 {
+  animation-delay: 100ms;
+}
+
+.stagger-3 {
+  animation-delay: 150ms;
+}
+
+.stagger-4 {
+  animation-delay: 200ms;
+}
+
+.stagger-5 {
+  animation-delay: 250ms;
+}
+
+/* Skeleton loading */
+.skeleton {
+  background: linear-gradient(90deg,
+      var(--bg-card) 25%,
+      var(--bg-card-hover) 50%,
+      var(--bg-card) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   CHART STYLES
+   ============================================ */
+.chart-container {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 250px;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    min-height: 350px;
+  }
+}
+
+/* Recharts customization */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.recharts-default-tooltip {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: var(--radius-lg) !important;
+  padding: var(--space-3) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.recharts-tooltip-label {
+  color: var(--text-primary) !important;
+  font-weight: var(--font-semibold) !important;
+  margin-bottom: var(--space-2) !important;
+}
+
+.recharts-tooltip-item {
+  color: var(--text-secondary) !important;
+  font-size: var(--text-sm) !important;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-card-hover);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--saffron);
+}
+
+/* ============================================
+   SELECTION
+   ============================================ */
+::selection {
+  background: var(--saffron);
+  color: white;
+}
+
+/* ============================================
+   FOCUS STATES
+   ============================================ */
+*:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   MEDIA QUERIES - RESPONSIVE BREAKPOINTS
+   ============================================ */
+@media (min-width: 640px) {
+  :root {
+    --container-padding: var(--space-6);
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--space-10);
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

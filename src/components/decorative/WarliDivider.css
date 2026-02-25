@@ -1,0 +1,132 @@
+/* Warli Divider Styles */
+
+.warli-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    padding: var(--space-8) 0;
+    color: var(--secondary-bg, #f5f1e8);
+    opacity: 0.7;
+}
+
+.warli-line {
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+}
+
+.warli-figures {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-3);
+}
+
+.warli-figure {
+    color: var(--accent-gold, #c85a3a);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    animation: warli-float-in 0.8s ease-out backwards;
+}
+
+.warli-figure:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.warli-figure:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.warli-figure:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.warli-figure:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.warli-figure:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.warli-figure:hover {
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
+.warli-flip {
+    transform: scaleX(-1);
+}
+
+.warli-flip:hover {
+    transform: scaleX(-1) translateY(-4px);
+}
+
+.warli-geometric {
+    animation: warli-spin 20s linear infinite;
+}
+
+@keyframes warli-float-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 0.8;
+        transform: translateY(0);
+    }
+}
+
+@keyframes warli-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Simple dots pattern */
+.warli-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-gold, #c85a3a);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.warli-dot:nth-child(2) {
+    width: 10px;
+    height: 10px;
+    opacity: 0.8;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .warli-figure {
+        animation: none;
+    }
+
+    .warli-geometric {
+        animation: none;
+    }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .warli-figures {
+        gap: var(--space-2);
+    }
+
+    .warli-figure {
+        width: 24px;
+        height: 36px;
+    }
+
+    .warli-line {
+        max-width: 80px;
+    }
+}

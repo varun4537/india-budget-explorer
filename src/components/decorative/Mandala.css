@@ -1,0 +1,76 @@
+/* Mandala Rotation Animation */
+
+.mandala-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rotating-mandala {
+    animation: rotate-mandala 30s linear infinite;
+    filter: drop-shadow(0 0 20px rgba(200, 90, 58, 0.2));
+    transition: filter 0.3s ease;
+}
+
+.rotating-mandala:hover {
+    animation-duration: 15s;
+    filter: drop-shadow(0 0 30px rgba(200, 90, 58, 0.4));
+}
+
+@keyframes rotate-mandala {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .rotating-mandala {
+        animation: none;
+    }
+}
+
+/* Fixed sidebar mandala (desktop only) */
+.mandala-sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.mandala-sidebar:hover {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media (max-width: 1200px) {
+    .mandala-sidebar {
+        display: none;
+    }
+}
+
+/* Hero mandala (inline) */
+.mandala-hero {
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .mandala-hero .rotating-mandala {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mandala-hero .rotating-mandala {
+        width: 80px;
+        height: 80px;
+    }
+}
