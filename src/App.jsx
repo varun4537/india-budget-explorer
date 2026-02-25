@@ -2,13 +2,18 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { BudgetProvider } from './context/BudgetContext';
 import Header from './components/ui/Header';
+import Breadcrumbs from './components/ui/Breadcrumbs';
+import BackToTop from './components/ui/BackToTop';
 import Dashboard from './pages/Dashboard';
 import Trends from './pages/Trends';
 import Sectors from './pages/Sectors';
 import SectorDetail from './pages/SectorDetail';
 import Compare from './pages/Compare';
 import Calculator from './pages/Calculator';
-import BudgetBuddy from './pages/BudgetBuddy';
+import WhatsNew from './pages/WhatsNew';
+import Glossary from './pages/Glossary';
+// BudgetBuddy temporarily paused
+// import BudgetBuddy from './pages/BudgetBuddy';
 import './App.css';
 
 // ScrollToTop component - resets scroll position on route change
@@ -28,6 +33,7 @@ function AppContent() {
       <ScrollToTop />
       <Header />
       <main className="main-content">
+        <Breadcrumbs />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/trends" element={<Trends />} />
@@ -35,7 +41,10 @@ function AppContent() {
           <Route path="/sectors/:sectorId" element={<SectorDetail />} />
           <Route path="/compare" element={<Compare />} />
           <Route path="/calculator" element={<Calculator />} />
-          <Route path="/budget-buddy" element={<BudgetBuddy />} />
+          <Route path="/whats-new" element={<WhatsNew />} />
+          <Route path="/glossary" element={<Glossary />} />
+          {/* Budget Buddy temporarily paused */}
+          {/* <Route path="/budget-buddy" element={<BudgetBuddy />} /> */}
         </Routes>
       </main>
       <footer className="footer">
@@ -54,6 +63,7 @@ function AppContent() {
           </div>
         </div>
       </footer>
+      <BackToTop />
     </div>
   );
 }

@@ -7,6 +7,13 @@ import TrendLineChart from '../components/charts/TrendLineChart';
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, Tooltip, LabelList } from 'recharts';
 import './SectorDetail.css';
 
+// Helper to safely render icons that might be Lucide components or strings
+const renderIcon = (IconObj, props = {}) => {
+    if (!IconObj) return null;
+    if (typeof IconObj === 'string') return IconObj;
+    return <IconObj {...props} />;
+};
+
 // Madhubani/Santhal inspired muted color palette
 const MADHUBANI_COLORS = [
     '#C75B39', // Terracotta
@@ -48,7 +55,7 @@ const CustomTooltip = ({ active, payload }) => {
             <div className="tooltip-border-pattern"></div>
             <div className="tooltip-inner">
                 <div className="tooltip-header">
-                    <span className="tooltip-icon">{data.icon}</span>
+                    <span className="tooltip-icon">{renderIcon(data.icon, { size: 16 })}</span>
                     <span className="tooltip-name">{data.name}</span>
                 </div>
                 <div className="tooltip-amount">{formatCurrency(data.amount)}</div>
@@ -162,7 +169,7 @@ export default function SectorDetail() {
                     </Link>
 
                     <div className="hero-content">
-                        <div className="sector-icon-large">{details.icon}</div>
+                        <div className="sector-icon-large">{renderIcon(details.icon, { size: 48 })}</div>
 
                         <div className="hero-info">
                             <div className="sector-badge">{details.fullName}</div>
@@ -223,7 +230,7 @@ export default function SectorDetail() {
                                     style={{ animationDelay: `${index * 80}ms` }}
                                 >
                                     <div className="bar-label">
-                                        <span className="bar-icon">{item.icon}</span>
+                                        <span className="bar-icon">{renderIcon(item.icon, { size: 18 })}</span>
                                         <span className="bar-name">{item.name}</span>
                                     </div>
 
@@ -261,7 +268,7 @@ export default function SectorDetail() {
                             >
                                 <div className="card-pattern-corner"></div>
                                 <div className="suballoc-header">
-                                    <span className="suballoc-icon">{item.icon}</span>
+                                    <span className="suballoc-icon">{renderIcon(item.icon, { size: 24 })}</span>
                                     <div className="suballoc-info">
                                         <h4 className="suballoc-name">{item.name}</h4>
                                         <p className="suballoc-desc">{item.description}</p>
@@ -388,7 +395,7 @@ export default function SectorDetail() {
                                     '--card-color': sector.color
                                 }}
                             >
-                                <span className="related-icon">{sector.icon}</span>
+                                <span className="related-icon">{renderIcon(sector.icon, { size: 24 })}</span>
                                 <div className="related-info">
                                     <h4 className="related-name">{sector.name}</h4>
                                     <span className="related-amount">{formatCurrency(sector.allocation)}</span>

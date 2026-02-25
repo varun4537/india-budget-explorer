@@ -1,7 +1,7 @@
 // Lucide icon imports
 import {
   Landmark, Briefcase, Building2, Receipt, Ship, FileText,
-  TrendingUp, TrendingDown, DollarSign, PiggyBank, Coins,
+  TrendingUp, TrendingDown, DollarSign, PiggyBank, Coins, PieChart,
   Shield, Heart, BookOpen, GraduationCap, Plane, Train,
   TreePine, Home, Users, Building, FlaskConical, Lightbulb,
   Wallet, Gift, UtensilsCrossed, Droplets, Flame, TrainFront,
@@ -44,47 +44,91 @@ export const revenueSources = {
 
 // Budget PDFs and Documents
 export const budgetDocuments = {
-  "2025-26": [
+  "2026-27": [
     {
       name: "Budget at a Glance",
       description: "Summary of receipts and expenditure",
       url: "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
-      icon: "📊",
+      icon: <PieChart className="w-6 h-6" />,
       size: "2.1 MB"
     },
     {
       name: "Budget Speech",
       description: "Finance Minister's speech in Parliament",
       url: "https://www.indiabudget.gov.in/doc/budget_speech.pdf",
-      icon: "🎤",
+      icon: <Mic className="w-6 h-6" />,
       size: "1.8 MB"
     },
     {
       name: "Annual Financial Statement",
       description: "Detailed receipts and expenditure",
       url: "https://www.indiabudget.gov.in/doc/rec/allrec.pdf",
-      icon: "📋",
+      icon: <FileText className="w-6 h-6" />,
       size: "4.2 MB"
     },
     {
-      name: "Economic Survey 2024-25",
+      name: "Economic Survey 2025-26",
       description: "State of the economy report",
       url: "https://www.indiabudget.gov.in/economicsurvey/",
-      icon: "📈",
+      icon: <TrendingUp className="w-6 h-6" />,
       size: "15 MB"
     },
     {
       name: "Expenditure Budget Vol-I",
       description: "Ministry-wise expenditure details",
       url: "https://www.indiabudget.gov.in/doc/eb/vol1.pdf",
-      icon: "📑",
+      icon: <ListOrdered className="w-6 h-6" />,
       size: "8.5 MB"
     },
     {
       name: "Receipt Budget",
       description: "Detailed revenue estimates",
       url: "https://www.indiabudget.gov.in/doc/rec/allrec.pdf",
-      icon: "💰",
+      icon: <Banknote className="w-6 h-6" />,
+      size: "3.2 MB"
+    }
+  ],
+  "2025-26": [
+    {
+      name: "Budget at a Glance",
+      description: "Summary of receipts and expenditure",
+      url: "https://www.indiabudget.gov.in/doc/Budget_at_Glance/budget_at_a_glance.pdf",
+      icon: <PieChart className="w-6 h-6" />,
+      size: "2.1 MB"
+    },
+    {
+      name: "Budget Speech",
+      description: "Finance Minister's speech in Parliament",
+      url: "https://www.indiabudget.gov.in/doc/budget_speech.pdf",
+      icon: <Mic className="w-6 h-6" />,
+      size: "1.8 MB"
+    },
+    {
+      name: "Annual Financial Statement",
+      description: "Detailed receipts and expenditure",
+      url: "https://www.indiabudget.gov.in/doc/rec/allrec.pdf",
+      icon: <FileText className="w-6 h-6" />,
+      size: "4.2 MB"
+    },
+    {
+      name: "Economic Survey 2024-25",
+      description: "State of the economy report",
+      url: "https://www.indiabudget.gov.in/economicsurvey/",
+      icon: <TrendingUp className="w-6 h-6" />,
+      size: "15 MB"
+    },
+    {
+      name: "Expenditure Budget Vol-I",
+      description: "Ministry-wise expenditure details",
+      url: "https://www.indiabudget.gov.in/doc/eb/vol1.pdf",
+      icon: <ListOrdered className="w-6 h-6" />,
+      size: "8.5 MB"
+    },
+    {
+      name: "Receipt Budget",
+      description: "Detailed revenue estimates",
+      url: "https://www.indiabudget.gov.in/doc/rec/allrec.pdf",
+      icon: <Banknote className="w-6 h-6" />,
       size: "3.2 MB"
     }
   ]
@@ -103,221 +147,30 @@ export const economicIndicators = {
 // Quick Facts for each budget year
 export const budgetQuickFacts = {
   "2026-27": [
-    { fact: "Budget crosses ₹53.47 Lakh Crore milestone", icon: "🎯" },
-    { fact: "Fiscal deficit reduced to 4.3% of GDP (lowest ever)", icon: "📉" },
-    { fact: "Capital expenditure at ₹12.22 Lakh Crore (3.1% of GDP)", icon: "🏗️" },
-    { fact: "Income Tax Act 2025 introduced for tax simplification", icon: "💼" },
-    { fact: "Transport allocation at ₹5.98 Lakh Cr (highest ever)", icon: "🚛" },
-    { fact: "PM Surya Ghar: ₹22,000 Cr for 39 lakh solar installations", icon: "☀️" },
-    { fact: "Viksit Bharat Rozgar Yojana: ₹20,083 Cr for jobs", icon: "💼" },
-    { fact: "MGNREGA reduced to ₹30,000 Cr (focus on skilling)", icon: "🎓" }
+    { fact: "Budget crosses ₹53.47 Lakh Crore milestone", icon: <Target className="w-6 h-6 text-blue-500" /> },
+    { fact: "Fiscal deficit reduced to 4.3% of GDP (lowest ever)", icon: <TrendingDown className="w-6 h-6 text-green-500" /> },
+    { fact: "Capital expenditure at ₹12.22 Lakh Crore (3.1% of GDP)", icon: <Building2 className="w-6 h-6 text-amber-500" /> },
+    { fact: "Income Tax Act 2025 introduced for tax simplification", icon: <Briefcase className="w-6 h-6 text-indigo-500" /> },
+    { fact: "Transport allocation at ₹5.98 Lakh Cr (highest ever)", icon: <Truck className="w-6 h-6 text-cyan-500" /> },
+    { fact: "PM Surya Ghar: ₹22,000 Cr for 39 lakh solar installations", icon: <Sun className="w-6 h-6 text-yellow-500" /> },
+    { fact: "Viksit Bharat Rozgar Yojana: ₹20,083 Cr for jobs", icon: <Users className="w-6 h-6 text-purple-500" /> },
+    { fact: "MGNREGA reduced to ₹30,000 Cr (focus on skilling)", icon: <GraduationCap className="w-6 h-6 text-orange-500" /> }
   ],
   "2025-26": [
-    { fact: "First budget to cross ₹50 Lakh Crore", icon: "🎯" },
-    { fact: "Capital expenditure at ₹11.5 Lakh Crore (record high)", icon: "🏗️" },
-    { fact: "Fiscal deficit reduced to 4.5% of GDP", icon: "📉" },
-    { fact: "New income tax regime: No tax up to ₹12 Lakh", icon: "💰" },
-    { fact: "₹2.66 Lakh Crore for rural development", icon: "🏡" },
-    { fact: "100% railway electrification achieved", icon: "⚡" },
-    { fact: "PM Awas Yojana: 3 Cr more houses targeted", icon: "🏠" },
-    { fact: "Semiconductor manufacturing push: ₹76,000 Cr", icon: "💻" }
+    { fact: "First budget to cross ₹50 Lakh Crore", icon: <Target className="w-6 h-6 text-blue-500" /> },
+    { fact: "Capital expenditure at ₹11.5 Lakh Crore (record high)", icon: <Building2 className="w-6 h-6 text-amber-500" /> },
+    { fact: "Fiscal deficit reduced to 4.5% of GDP", icon: <TrendingDown className="w-6 h-6 text-green-500" /> },
+    { fact: "New income tax regime: No tax up to ₹12 Lakh", icon: <Coins className="w-6 h-6 text-yellow-500" /> },
+    { fact: "₹2.66 Lakh Crore for rural development", icon: <Home className="w-6 h-6 text-emerald-500" /> },
+    { fact: "100% railway electrification achieved", icon: <Zap className="w-6 h-6 text-yellow-600" /> },
+    { fact: "PM Awas Yojana: 3 Cr more houses targeted", icon: <Building className="w-6 h-6 text-blue-400" /> },
+    { fact: "Semiconductor manufacturing push: ₹76,000 Cr", icon: <Cpu className="w-6 h-6 text-purple-500" /> }
   ]
 };
 
-// Key Government Schemes with descriptions and official links
-export const keySchemeDetails = {
-  // Health Schemes
-  "Ayushman Bharat": {
-    name: "Ayushman Bharat - PM Jan Arogya Yojana",
-    shortName: "AB-PMJAY",
-    description: "World's largest health insurance scheme providing ₹5 lakh health cover to 50 Cr beneficiaries for secondary and tertiary care hospitalization.",
-    launched: "2018",
-    url: "https://pmjay.gov.in/",
-    category: "Health"
-  },
-  "PM Aatmanirbhar Swasth Bharat": {
-    name: "PM Aatmanirbhar Swasth Bharat Yojana",
-    shortName: "PMASBY",
-    description: "Launched with ₹64,180 Cr outlay to develop health infrastructure, labs, and surveillance systems across the country.",
-    launched: "2021",
-    url: "https://www.pmnrf.gov.in/",
-    category: "Health"
-  },
-  "NHM": {
-    name: "National Health Mission",
-    shortName: "NHM",
-    description: "Umbrella program for rural and urban health covering maternal health, immunization, and disease control programs.",
-    launched: "2013",
-    url: "https://nhm.gov.in/",
-    category: "Health"
-  },
-
-  // Education Schemes
-  "NEP 2020": {
-    name: "National Education Policy 2020",
-    shortName: "NEP",
-    description: "Comprehensive education reform focusing on foundational literacy, flexible curriculum, and multidisciplinary education from school to higher education.",
-    launched: "2020",
-    url: "https://www.education.gov.in/nep/",
-    category: "Education"
-  },
-  "Samagra Shiksha": {
-    name: "Samagra Shiksha Abhiyan",
-    shortName: "SSA",
-    description: "Integrated scheme for school education from pre-primary to class XII covering infrastructure, teachers, and quality improvement.",
-    launched: "2018",
-    url: "https://samagra.education.gov.in/",
-    category: "Education"
-  },
-  "PM-USHA": {
-    name: "PM Uchchatar Shiksha Abhiyan",
-    shortName: "PM-USHA",
-    description: "Scheme for higher education institutions to improve quality and access through infrastructure grants.",
-    launched: "2022",
-    url: "https://www.education.gov.in/",
-    category: "Education"
-  },
-
-  // Agriculture Schemes
-  "PM-KISAN": {
-    name: "PM Kisan Samman Nidhi",
-    shortName: "PM-KISAN",
-    description: "Direct income support of ₹6,000 per year to 11 Cr+ farmer families in three equal installments via DBT.",
-    launched: "2019",
-    url: "https://pmkisan.gov.in/",
-    category: "Agriculture"
-  },
-  "PM Fasal Bima": {
-    name: "PM Fasal Bima Yojana",
-    shortName: "PMFBY",
-    description: "Crop insurance scheme with low premium (2% kharif, 1.5% rabi) protecting farmers against crop failure due to natural calamities.",
-    launched: "2016",
-    url: "https://pmfby.gov.in/",
-    category: "Agriculture"
-  },
-  "Kisan Credit Card": {
-    name: "Kisan Credit Card Scheme",
-    shortName: "KCC",
-    description: "Provides farmers with credit up to ₹3 lakh at subsidized 4% interest rate for agricultural and allied needs.",
-    launched: "1998",
-    url: "https://www.nabard.org/",
-    category: "Agriculture"
-  },
-
-  // Rural Development
-  "PM Awas Yojana": {
-    name: "Pradhan Mantri Awas Yojana",
-    shortName: "PMAY",
-    description: "Housing for All scheme providing subsidy of ₹1.2-2.67 lakh for building pucca houses for rural and urban poor.",
-    launched: "2015",
-    url: "https://pmaymis.gov.in/",
-    category: "Housing"
-  },
-  "MGNREGA": {
-    name: "Mahatma Gandhi National Rural Employment Guarantee Act",
-    shortName: "MGNREGA",
-    description: "Guarantees 100 days of wage employment per year to rural households willing to do unskilled manual work.",
-    launched: "2005",
-    url: "https://nrega.nic.in/",
-    category: "Employment"
-  },
-  "Jal Jeevan Mission": {
-    name: "Jal Jeevan Mission",
-    shortName: "JJM",
-    description: "Aims to provide piped water supply (Har Ghar Jal) to all rural households by 2024. Over 14 Cr tap connections provided.",
-    launched: "2019",
-    url: "https://jaljeevanmission.gov.in/",
-    category: "Water"
-  },
-
-  // Social Welfare
-  "PM Ujjwala Yojana": {
-    name: "Pradhan Mantri Ujjwala Yojana",
-    shortName: "PMUY",
-    description: "Free LPG connections to BPL families, over 9.5 Cr connections provided to women for clean cooking fuel.",
-    launched: "2016",
-    url: "https://www.pmuy.gov.in/",
-    category: "Social Welfare"
-  },
-  "DBT": {
-    name: "Direct Benefit Transfer",
-    shortName: "DBT",
-    description: "Transfers government subsidies and benefits directly to beneficiary bank accounts, saving ₹2.7 lakh Cr from leakages.",
-    launched: "2013",
-    url: "https://dbtbharat.gov.in/",
-    category: "Governance"
-  },
-  "NFSA": {
-    name: "National Food Security Act",
-    shortName: "NFSA",
-    description: "Provides subsidized food grains (rice at ₹3/kg, wheat at ₹2/kg) to 80 Cr beneficiaries through PDS.",
-    launched: "2013",
-    url: "https://nfsa.gov.in/",
-    category: "Food Security"
-  },
-
-  // Infrastructure
-  "PM GatiShakti": {
-    name: "PM Gati Shakti National Master Plan",
-    shortName: "PM GatiShakti",
-    description: "₹100 lakh Cr integrated infrastructure plan for multimodal connectivity covering roads, railways, ports, and logistics.",
-    launched: "2021",
-    url: "https://pmgatishakti.gov.in/",
-    category: "Infrastructure"
-  },
-  "Bharatmala": {
-    name: "Bharatmala Pariyojana",
-    shortName: "Bharatmala",
-    description: "Mega highway development project to build 83,677 km of roads including economic corridors and border roads.",
-    launched: "2017",
-    url: "https://morth.nic.in/",
-    category: "Roads"
-  },
-  "Vande Bharat": {
-    name: "Vande Bharat Express",
-    shortName: "Vande Bharat",
-    description: "India's indigenous semi-high speed train with 180 km/h capability, 102 trains operational across the country.",
-    launched: "2019",
-    url: "https://indianrailways.gov.in/",
-    category: "Railways"
-  },
-
-  // Women Empowerment
-  "Lakhpati Didi": {
-    name: "Lakhpati Didi Scheme",
-    shortName: "Lakhpati Didi",
-    description: "Aims to enable 3 Cr women in Self-Help Groups to earn sustainable income of ₹1 lakh or more annually.",
-    launched: "2023",
-    url: "https://nrlm.gov.in/",
-    category: "Women Empowerment"
-  },
-
-  // Green Energy & Sustainability
-  "PM Surya Ghar": {
-    name: "PM Surya Ghar: Muft Bijli Yojana",
-    shortName: "PM Surya Ghar",
-    description: "Rooftop solar scheme providing free electricity to households. Target of 39 lakh installations with ₹22,000 Cr allocation.",
-    launched: "2024",
-    url: "https://pmsuryaghar.gov.in/",
-    category: "Energy"
-  },
-  "Green Hydrogen Mission": {
-    name: "National Green Hydrogen Mission",
-    shortName: "NGHM",
-    description: "Mission to establish India as a global hub for green hydrogen production with ₹600 Cr for 0.1 MMTPA capacity.",
-    launched: "2023",
-    url: "https://mnre.gov.in/",
-    category: "Energy"
-  },
-  "PM E-DRIVE": {
-    name: "PM Electric Drive Revolution in Innovative Vehicles",
-    shortName: "PM E-DRIVE",
-    description: "Successor to FAME scheme promoting electric vehicle adoption with ₹1,500 Cr allocation for EV infrastructure and subsidies.",
-    launched: "2024",
-    url: "https://fame2.heavyindustries.gov.in/",
-    category: "Transport"
-  }
-};
+// Key Government Schemes with descriptions and official links (Imported from schemes.js)
+import { keySchemeDetails } from './schemes';
+export { keySchemeDetails };
 
 // Helper function to get scheme details
 export function getSchemeDetails(schemeName) {
@@ -647,146 +500,33 @@ export const sectorDetails = {
     ],
     keySchemes: ["NFSA", "PM Garib Kalyan Anna Yojana", "DBT"],
     perCapita: 290
+  },
+
+  transport: {
+    id: "transport",
+    name: "Transport",
+    fullName: "Ministry of Road Transport, Highways & Railways",
+    description: "Transport budget covers railways, civilian aviation, roads, highways, and shipping to improve nation-wide connectivity and reduce logistics costs.",
+    icon: Truck,
+    color: "#06b6d4",
+    subColor: "#67e8f9",
+    subAllocations: [
+      { name: "Railways Allocation", amount: 272000, description: "Capital support for Indian Railways", icon: Train },
+      { name: "Roads & Highways", amount: 296000, description: "National Highways & Expressways targeting 10,000 km", icon: Route },
+      { name: "Aviation & Shipping", amount: 30520, description: "Airports and maritime infrastructure", icon: Plane }
+    ],
+    insights: [
+      "Highest ever allocation for the transport sector at ₹5.98 Lakh Cr.",
+      "Targeting 10,000 km of new highways via NHAI.",
+      "Focus on reducing logistics costs across the nation.",
+      "Significant boost to EV infrastructure and Vande Bharat expansion."
+    ],
+    keySchemes: ["PM GatiShakti", "Bharatmala", "Vande Bharat", "PM E-DRIVE"],
+    perCapita: 421
   }
 };
 
 export const budgetData = {
-  "2021-22": {
-    fiscalYear: "2021-22",
-    presented: "February 1, 2021",
-    totalBudget: 3483236,
-    totalExpenditure: 3483236,
-    revenueReceipts: 1788424,
-    capitalExpenditure: 554236,
-    fiscalDeficit: {
-      amount: 1506812,
-      percentGDP: 6.8
-    },
-    sectors: [
-      { id: "defense", name: "Defense", allocation: 478195, color: "#f43f5e", icon: "🛡️" },
-      { id: "healthcare", name: "Health & Family Welfare", allocation: 223846, color: "#10b981", icon: "🏥" },
-      { id: "education", name: "Education", allocation: 93224, color: "#f59e0b", icon: "📚" },
-      { id: "infrastructure", name: "Roads & Highways", allocation: 118101, color: "#06b6d4", icon: "🛣️" },
-      { id: "railways", name: "Railways", allocation: 110055, color: "#8b5cf6", icon: "🚂" },
-      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 148301, color: "#84cc16", icon: "🌾" },
-      { id: "rural", name: "Rural Development", allocation: 133690, color: "#22c55e", icon: "🏡" },
-      { id: "social", name: "Social Welfare", allocation: 164234, color: "#a855f7", icon: "🤝" },
-      { id: "urban", name: "Urban Development", allocation: 54581, color: "#14b8a6", icon: "🏙️" },
-      { id: "science", name: "Science & Technology", allocation: 14793, color: "#6366f1", icon: "🔬" },
-      { id: "interest", name: "Interest Payments", allocation: 809701, color: "#78716c", icon: "💰" },
-      { id: "subsidies", name: "Subsidies", allocation: 338918, color: "#ec4899", icon: "🎁" }
-    ],
-    highlights: [
-      "COVID-19 vaccination program allocation of ₹35,000 Cr",
-      "Healthcare budget increased by 137% over previous year",
-      "PM Aatmanirbhar Swasth Bharat Yojana launched with ₹64,180 Cr",
-      "Disinvestment target set at ₹1.75 Lakh Cr",
-      "Vehicle scrappage policy announced",
-      "7 textile parks to be established"
-    ]
-  },
-  "2022-23": {
-    fiscalYear: "2022-23",
-    presented: "February 1, 2022",
-    totalBudget: 3944909,
-    totalExpenditure: 3944909,
-    revenueReceipts: 2249224,
-    capitalExpenditure: 755064,
-    fiscalDeficit: {
-      amount: 1659388,
-      percentGDP: 6.4
-    },
-    sectors: [
-      { id: "defense", name: "Defense", allocation: 525165, color: "#f43f5e", icon: "🛡️" },
-      { id: "healthcare", name: "Health & Family Welfare", allocation: 86200, color: "#10b981", icon: "🏥" },
-      { id: "education", name: "Education", allocation: 104278, color: "#f59e0b", icon: "📚" },
-      { id: "infrastructure", name: "Roads & Highways", allocation: 199107, color: "#06b6d4", icon: "🛣️" },
-      { id: "railways", name: "Railways", allocation: 140367, color: "#8b5cf6", icon: "🚂" },
-      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 132513, color: "#84cc16", icon: "🌾" },
-      { id: "rural", name: "Rural Development", allocation: 138204, color: "#22c55e", icon: "🏡" },
-      { id: "social", name: "Social Welfare", allocation: 176049, color: "#a855f7", icon: "🤝" },
-      { id: "urban", name: "Urban Development", allocation: 76549, color: "#14b8a6", icon: "🏙️" },
-      { id: "science", name: "Science & Technology", allocation: 16361, color: "#6366f1", icon: "🔬" },
-      { id: "interest", name: "Interest Payments", allocation: 940651, color: "#78716c", icon: "💰" },
-      { id: "subsidies", name: "Subsidies", allocation: 359617, color: "#ec4899", icon: "🎁" }
-    ],
-    highlights: [
-      "PM GatiShakti - ₹20,000 Cr for multimodal logistics",
-      "Capital expenditure increased by 35.4%",
-      "400 new Vande Bharat trains announced",
-      "Digital Rupee by RBI announced",
-      "75 digital banking units in 75 districts",
-      "Transition to 5G services prioritized"
-    ]
-  },
-  "2023-24": {
-    fiscalYear: "2023-24",
-    presented: "February 1, 2023",
-    totalBudget: 4503097,
-    totalExpenditure: 4503097,
-    revenueReceipts: 2635724,
-    capitalExpenditure: 1000961,
-    fiscalDeficit: {
-      amount: 1796693,
-      percentGDP: 5.9
-    },
-    sectors: [
-      { id: "defense", name: "Defense", allocation: 593537, color: "#f43f5e", icon: "🛡️" },
-      { id: "healthcare", name: "Health & Family Welfare", allocation: 89155, color: "#10b981", icon: "🏥" },
-      { id: "education", name: "Education", allocation: 112899, color: "#f59e0b", icon: "📚" },
-      { id: "infrastructure", name: "Roads & Highways", allocation: 271000, color: "#06b6d4", icon: "🛣️" },
-      { id: "railways", name: "Railways", allocation: 241487, color: "#8b5cf6", icon: "🚂" },
-      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 125182, color: "#84cc16", icon: "🌾" },
-      { id: "rural", name: "Rural Development", allocation: 157545, color: "#22c55e", icon: "🏡" },
-      { id: "social", name: "Social Welfare", allocation: 196729, color: "#a855f7", icon: "🤝" },
-      { id: "urban", name: "Urban Development", allocation: 76432, color: "#14b8a6", icon: "🏙️" },
-      { id: "science", name: "Science & Technology", allocation: 16749, color: "#6366f1", icon: "🔬" },
-      { id: "interest", name: "Interest Payments", allocation: 1079200, color: "#78716c", icon: "💰" },
-      { id: "subsidies", name: "Subsidies", allocation: 388208, color: "#ec4899", icon: "🎁" }
-    ],
-    highlights: [
-      "Highest ever capital expenditure at ₹10 lakh Cr",
-      "Railways receives highest-ever budget",
-      "New Income Tax regime announced as default",
-      "PM Vishwakarma scheme for artisans launched",
-      "50 new airports announced",
-      "Agriculture Accelerator Fund set up"
-    ]
-  },
-  "2024-25": {
-    fiscalYear: "2024-25",
-    presented: "February 1, 2024",
-    totalBudget: 4786349,
-    totalExpenditure: 4786349,
-    revenueReceipts: 2829227,
-    capitalExpenditure: 1111111,
-    fiscalDeficit: {
-      amount: 1794773,
-      percentGDP: 5.1
-    },
-    sectors: [
-      { id: "defense", name: "Defense", allocation: 621940, color: "#f43f5e", icon: "🛡️" },
-      { id: "healthcare", name: "Health & Family Welfare", allocation: 90958, color: "#10b981", icon: "🏥" },
-      { id: "education", name: "Education", allocation: 120628, color: "#f59e0b", icon: "📚" },
-      { id: "infrastructure", name: "Roads & Highways", allocation: 278000, color: "#06b6d4", icon: "🛣️" },
-      { id: "railways", name: "Railways", allocation: 255175, color: "#8b5cf6", icon: "🚂" },
-      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 127470, color: "#84cc16", icon: "🌾" },
-      { id: "rural", name: "Rural Development", allocation: 168526, color: "#22c55e", icon: "🏡" },
-      { id: "social", name: "Social Welfare", allocation: 209521, color: "#a855f7", icon: "🤝" },
-      { id: "urban", name: "Urban Development", allocation: 82577, color: "#14b8a6", icon: "🏙️" },
-      { id: "science", name: "Science & Technology", allocation: 17185, color: "#6366f1", icon: "🔬" },
-      { id: "interest", name: "Interest Payments", allocation: 1179900, color: "#78716c", icon: "💰" },
-      { id: "subsidies", name: "Subsidies", allocation: 404219, color: "#ec4899", icon: "🎁" }
-    ],
-    highlights: [
-      "Fiscal deficit target reduced to 5.1% of GDP",
-      "₹1.11 lakh Cr for rural housing",
-      "3 crore additional houses under PM Awas Yojana",
-      "Rooftop solarization for 1 Cr households",
-      "Lakhpati Didi scheme for 3 Cr women",
-      "New medical colleges for AIIMS"
-    ]
-  },
   "2025-26": {
     fiscalYear: "2025-26",
     presented: "February 1, 2025",
@@ -799,18 +539,18 @@ export const budgetData = {
       percentGDP: 4.5
     },
     sectors: [
-      { id: "defense", name: "Defense", allocation: 682370, color: "#f43f5e", icon: "🛡️" },
-      { id: "healthcare", name: "Health & Family Welfare", allocation: 99507, color: "#10b981", icon: "🏥" },
-      { id: "education", name: "Education", allocation: 131735, color: "#f59e0b", icon: "📚" },
-      { id: "infrastructure", name: "Roads & Highways", allocation: 296000, color: "#06b6d4", icon: "🛣️" },
-      { id: "railways", name: "Railways", allocation: 272000, color: "#8b5cf6", icon: "🚂" },
-      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 137200, color: "#84cc16", icon: "🌾" },
-      { id: "rural", name: "Rural Development", allocation: 181700, color: "#22c55e", icon: "🏡" },
-      { id: "social", name: "Social Welfare", allocation: 226340, color: "#a855f7", icon: "🤝" },
-      { id: "urban", name: "Urban Development", allocation: 92100, color: "#14b8a6", icon: "🏙️" },
-      { id: "science", name: "Science & Technology", allocation: 18200, color: "#6366f1", icon: "🔬" },
-      { id: "interest", name: "Interest Payments", allocation: 1260842, color: "#78716c", icon: "💰" },
-      { id: "subsidies", name: "Subsidies", allocation: 412126, color: "#ec4899", icon: "🎁" }
+      { id: "defense", name: "Defense", allocation: 682370, color: "#f43f5e", icon: Shield },
+      { id: "healthcare", name: "Health & Family Welfare", allocation: 99507, color: "#10b981", icon: Heart },
+      { id: "education", name: "Education", allocation: 131735, color: "#f59e0b", icon: BookOpen },
+      { id: "infrastructure", name: "Roads & Highways", allocation: 296000, color: "#06b6d4", icon: Route },
+      { id: "railways", name: "Railways", allocation: 272000, color: "#8b5cf6", icon: Train },
+      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 137200, color: "#84cc16", icon: TreePine },
+      { id: "rural", name: "Rural Development", allocation: 181700, color: "#22c55e", icon: Home },
+      { id: "social", name: "Social Welfare", allocation: 226340, color: "#a855f7", icon: Users },
+      { id: "urban", name: "Urban Development", allocation: 92100, color: "#14b8a6", icon: Building },
+      { id: "science", name: "Science & Technology", allocation: 18200, color: "#6366f1", icon: FlaskConical },
+      { id: "interest", name: "Interest Payments", allocation: 1260842, color: "#78716c", icon: Wallet },
+      { id: "subsidies", name: "Subsidies", allocation: 412126, color: "#ec4899", icon: Gift }
     ],
     highlights: [
       "Total budget crosses ₹50 lakh Cr for first time",
@@ -835,24 +575,24 @@ export const budgetData = {
       percentGDP: 4.3
     },
     sectors: [
-      { id: "defense", name: "Defense", allocation: 594585, color: "#f43f5e", icon: "🛡️" },
-      { id: "pension", name: "Pension", allocation: 296214, color: "#64748b", icon: "👴" },
-      { id: "transport", name: "Transport", allocation: 598520, color: "#06b6d4", icon: "🚛" },
-      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 162671, color: "#84cc16", icon: "🌾" },
-      { id: "rural", name: "Rural Development", allocation: 273108, color: "#22c55e", icon: "🏡" },
-      { id: "education", name: "Education", allocation: 139289, color: "#f59e0b", icon: "📚" },
-      { id: "interest", name: "Interest Payments", allocation: 1403972, color: "#78716c", icon: "💰" },
-      { id: "energy", name: "Energy", allocation: 109029, color: "#eab308", icon: "⚡" },
-      { id: "healthcare", name: "Health & Family Welfare", allocation: 104599, color: "#10b981", icon: "🏥" },
-      { id: "urban", name: "Urban Development", allocation: 85522, color: "#14b8a6", icon: "🏙️" },
-      { id: "infrastructure", name: "Roads & Highways", allocation: 187293, color: "#0891b2", icon: "🛣️" },
-      { id: "science", name: "Science & Technology", allocation: 55756, color: "#6366f1", icon: "🔬" },
-      { id: "social", name: "Social Welfare", allocation: 62362, color: "#a855f7", icon: "🤝" },
-      { id: "commerce", name: "Commerce & Industry", allocation: 70296, color: "#f97316", icon: "🏭" },
-      { id: "subsidies", name: "Subsidies", allocation: 455000, color: "#ec4899", icon: "🎁" },
-      { id: "northEast", name: "North East Development", allocation: 6812, color: "#0d9488", icon: "🏔️" },
-      { id: "home", name: "Home Affairs", allocation: 255234, color: "#be185d", icon: "🏠" },
-      { id: "external", name: "External Affairs", allocation: 22119, color: "#1e40af", icon: "🌐" }
+      { id: "defense", name: "Defense", allocation: 594585, color: "#f43f5e", icon: Shield },
+      { id: "pension", name: "Pension", allocation: 296214, color: "#64748b", icon: User },
+      { id: "transport", name: "Transport", allocation: 598520, color: "#06b6d4", icon: Truck },
+      { id: "agriculture", name: "Agriculture & Farmers Welfare", allocation: 162671, color: "#84cc16", icon: TreePine },
+      { id: "rural", name: "Rural Development", allocation: 273108, color: "#22c55e", icon: Home },
+      { id: "education", name: "Education", allocation: 139289, color: "#f59e0b", icon: BookOpen },
+      { id: "interest", name: "Interest Payments", allocation: 1403972, color: "#78716c", icon: Wallet },
+      { id: "energy", name: "Energy", allocation: 109029, color: "#eab308", icon: Zap },
+      { id: "healthcare", name: "Health & Family Welfare", allocation: 104599, color: "#10b981", icon: Heart },
+      { id: "urban", name: "Urban Development", allocation: 85522, color: "#14b8a6", icon: Building },
+      { id: "infrastructure", name: "Roads & Highways", allocation: 187293, color: "#0891b2", icon: Route },
+      { id: "science", name: "Science & Technology", allocation: 55756, color: "#6366f1", icon: FlaskConical },
+      { id: "social", name: "Social Welfare", allocation: 62362, color: "#a855f7", icon: Users },
+      { id: "commerce", name: "Commerce & Industry", allocation: 70296, color: "#f97316", icon: Factory },
+      { id: "subsidies", name: "Subsidies", allocation: 455000, color: "#ec4899", icon: Gift },
+      { id: "northEast", name: "North East Development", allocation: 6812, color: "#0d9488", icon: Mountain },
+      { id: "home", name: "Home Affairs", allocation: 255234, color: "#be185d", icon: Building2 },
+      { id: "external", name: "External Affairs", allocation: 22119, color: "#1e40af", icon: Globe }
     ],
     highlights: [
       "Budget crosses ₹53.47 Lakh Crore milestone",
@@ -888,7 +628,36 @@ export const sectorsList = latestBudget.sectors.map(s => ({
 
 // Get sector details by ID
 export function getSectorDetails(sectorId) {
-  return sectorDetails[sectorId] || null;
+  if (sectorDetails[sectorId]) {
+    return sectorDetails[sectorId];
+  }
+
+  // Find in latest budget to provide a robust fallback
+  const fallbackSector = budgetData["2026-27"]?.sectors.find(s => s.id === sectorId) ||
+    budgetData["2025-26"]?.sectors.find(s => s.id === sectorId);
+
+  if (fallbackSector) {
+    return {
+      id: fallbackSector.id,
+      name: fallbackSector.name,
+      fullName: `Ministry of ${fallbackSector.name}`,
+      description: `Budgetary allocation and provisions for the ${fallbackSector.name} sector.`,
+      icon: fallbackSector.icon || PieChart,
+      color: fallbackSector.color || "#888",
+      subColor: fallbackSector.color || "#aaa",
+      subAllocations: [
+        { name: "General Allocation", amount: fallbackSector.allocation, description: `Primary funding for ${fallbackSector.name}`, icon: fallbackSector.icon || PieChart }
+      ],
+      insights: [
+        `${fallbackSector.name} is a key focus area in the current budget.`,
+        `Per capita allocation stands at ₹${getPerCapita(fallbackSector.allocation)}.`
+      ],
+      keySchemes: [],
+      perCapita: getPerCapita(fallbackSector.allocation)
+    };
+  }
+
+  return null;
 }
 
 // Calculate trend data for a specific sector

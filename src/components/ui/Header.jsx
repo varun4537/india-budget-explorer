@@ -1,20 +1,26 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useBudget } from '../../context/BudgetContext';
+import GlobalSearch from './GlobalSearch';
 import './Header.css';
+import { LayoutDashboard, TrendingUp, Landmark, Scale, Calculator, Sparkles, Book, Search } from 'lucide-react';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const location = useLocation();
     const { theme, toggleTheme, selectedYear, setSelectedYear, fiscalYears } = useBudget();
 
     const navLinks = [
-        { path: '/', label: 'Dashboard', icon: '📊' },
-        { path: '/trends', label: 'Trends', icon: '📈' },
-        { path: '/sectors', label: 'Sectors', icon: '🏛️' },
-        { path: '/compare', label: 'Compare', icon: '⚖️' },
-        { path: '/calculator', label: 'Your Share', icon: '💰' },
-        { path: '/budget-buddy', label: 'Ask AI', icon: '🤖' }
+        { path: '/', label: 'Dashboard', icon: <LayoutDashboard className="w-5 h-5" /> },
+        { path: '/whats-new', label: 'What\'s New', icon: <Sparkles className="w-5 h-5" /> },
+        { path: '/trends', label: 'Trends', icon: <TrendingUp className="w-5 h-5" /> },
+        { path: '/sectors', label: 'Sectors', icon: <Landmark className="w-5 h-5" /> },
+        { path: '/compare', label: 'Compare', icon: <Scale className="w-5 h-5" /> },
+        { path: '/glossary', label: 'Glossary', icon: <Book className="w-5 h-5" /> },
+        { path: '/calculator', label: 'Tax Calculator', icon: <Calculator className="w-5 h-5" /> }
+        // Budget Buddy temporarily paused
+        // { path: '/budget-buddy', label: 'Ask AI', icon: <Bot className="w-5 h-5" /> }
     ];
 
     const isActive = (path) => location.pathname === path;
@@ -47,6 +53,15 @@ export default function Header() {
 
                 {/* Controls */}
                 <div className="header-controls">
+                    {/* Search Button */}
+                    <button
+                        className="search-toggle"
+                        onClick={() => setIsSearchOpen(true)}
+                        aria-label="Search"
+                    >
+                        <Search size={20} />
+                    </button>
+
                     {/* Year Selector */}
                     <select
                         className="year-select"
@@ -94,6 +109,12 @@ export default function Header() {
                     </Link>
                 ))}
             </nav>
+
+            {/* Global Search Modal */}
+            <GlobalSearch
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
+            />
         </header>
     );
 }

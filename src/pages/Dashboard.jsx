@@ -170,16 +170,7 @@ export default function Dashboard() {
                             <p className="explore-desc">Calculate how the budget affects your taxes</p>
                             <span className="explore-cta">Calculate →</span>
                         </div>
-
-                        <div
-                            className="explore-card explore-ai"
-                            onClick={() => navigate('/buddy')}
-                        >
-                            <div className="explore-icon"><Bot size={40} /></div>
-                            <h3 className="explore-title">Ask AI</h3>
-                            <p className="explore-desc">Get instant answers about the budget from our AI assistant</p>
-                            <span className="explore-cta">Ask Question →</span>
-                        </div>
+                        {/* Budget Buddy temporarily paused */}
                     </div>
 
                     <div className="explore-cta-container">
