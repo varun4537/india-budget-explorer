@@ -3,6 +3,8 @@ import TrendLineChart from '../components/charts/TrendLineChart';
 import ComparisonBarChart from '../components/charts/ComparisonBarChart';
 import { getSectorTrend, sectorsList } from '../data';
 import { formatCurrency } from '../utils/formatters';
+import { TrendingUp, BarChart3 } from 'lucide-react';
+import ChartWrapper from '../components/ui/ChartWrapper';
 import './Trends.css';
 
 export default function Trends() {
@@ -16,7 +18,7 @@ export default function Trends() {
             id,
             name: sector?.name || id,
             color: sector?.color || '#3b82f6',
-            icon: sector?.icon || '📊',
+            icon: sector?.icon || BarChart3,
             data: trend
         };
     });
@@ -37,7 +39,7 @@ export default function Trends() {
             <div className="container">
                 <div className="page-header">
                     <h1 className="page-title">
-                        <span className="title-icon">📈</span>
+                        <span className="title-icon"><TrendingUp className="text-emerald-400" size={28} /></span>
                         Budget Trends
                     </h1>
                     <p className="page-subtitle">
@@ -48,14 +50,18 @@ export default function Trends() {
                 {/* Total Budget Trend */}
                 <section className="trends-section">
                     <h2 className="section-title">Total Budget Growth</h2>
-                    <div className="chart-card">
-                        <TrendLineChart
-                            data={budgetTrend}
-                            lines={[
-                                { dataKey: 'total', name: 'Total Budget', color: '#3b82f6' }
-                            ]}
-                            height={350}
-                        />
+                    <div
+                        className="chart-card"
+                    >
+                        <ChartWrapper title="Total Budget Growth">
+                            <TrendLineChart
+                                data={budgetTrend}
+                                lines={[
+                                    { dataKey: 'total', name: 'Total Budget', color: '#3b82f6' }
+                                ]}
+                                height={350}
+                            />
+                        </ChartWrapper>
                     </div>
 
                     <div className="stats-row">
@@ -83,15 +89,17 @@ export default function Trends() {
                     <h2 className="section-title">Key Sector Trends</h2>
 
                     <div className="chart-card">
-                        <TrendLineChart
-                            data={multiLineData}
-                            lines={sectorTrends.map(s => ({
-                                dataKey: s.id,
-                                name: s.name,
-                                color: s.color
-                            }))}
-                            height={400}
-                        />
+                        <ChartWrapper title="Key Sector Trends">
+                            <TrendLineChart
+                                data={multiLineData}
+                                lines={sectorTrends.map(s => ({
+                                    dataKey: s.id,
+                                    name: s.name,
+                                    color: s.color
+                                }))}
+                                height={400}
+                            />
+                        </ChartWrapper>
                     </div>
                 </section>
 

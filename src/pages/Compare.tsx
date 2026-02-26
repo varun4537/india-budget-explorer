@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useBudget } from '../context/BudgetContext';
 import ComparisonBarChart from '../components/charts/ComparisonBarChart';
 import { formatCurrency, formatPercent } from '../utils/formatters';
+import { Scale } from 'lucide-react';
 import './Compare.css';
 
 export default function Compare() {
@@ -40,7 +41,7 @@ export default function Compare() {
             <div className="container">
                 <div className="page-header">
                     <h1 className="page-title">
-                        <span className="title-icon">⚖️</span>
+                        <span className="title-icon"><Scale className="text-orange-400" size={28} /></span>
                         Compare Budgets
                     </h1>
                     <p className="page-subtitle">

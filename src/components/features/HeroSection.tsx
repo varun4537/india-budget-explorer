@@ -3,6 +3,8 @@ import { useBudget } from '../../context/BudgetContext';
 import { formatCurrency } from '../../utils/formatters';
 import Mandala from '../decorative/Mandala';
 import WarliDivider from '../decorative/WarliDivider';
+import WarliBackground from '../decorative/WarliBackground';
+import { Building2, Landmark, TrendingDown, CircleDollarSign } from 'lucide-react';
 import './HeroSection.css';
 
 // Inline Live Population Counter Component
@@ -48,11 +50,11 @@ function InlinePopulationCounter() {
     };
 
     return (
-        <span className="inline-population">
+        <span className="inline-population" style={{ flexWrap: 'wrap' }}>
             <span className="pop-number">
                 {formatIndianNumber(population)}
             </span>
-            <span className="pop-live-badge">
+            <span className="pop-live-badge whitespace-nowrap">
                 <span className="live-dot"></span>
                 LIVE
             </span>
@@ -81,6 +83,7 @@ export default function HeroSection() {
                 <div className="hero-background">
                     <div className="hero-gradient" />
                     <div className="hero-pattern" />
+                    <WarliBackground />
                 </div>
 
                 <div className="hero-layout">
@@ -91,11 +94,6 @@ export default function HeroSection() {
 
                     {/* Main Content - Right Side */}
                     <div className="hero-content">
-                        <div className="hero-badge">
-                            <span className="badge-icon">📊</span>
-                            <span>Union Budget FY {selectedYear}</span>
-                        </div>
-
                         <h1 className="hero-title">
                             <span className="title-line">Your Budget.</span>
                             <span className="title-line title-accent">Your Money.</span>
@@ -133,15 +131,15 @@ export default function HeroSection() {
 
                             <div className="hero-stat-grid">
                                 <div className="hero-stat-small">
-                                    <div className="stat-icon">📅</div>
+                                    <div className="stat-icon"><Building2 size={24} className="text-blue-400" /></div>
                                     <div className="stat-info">
-                                        <span className="stat-value">{selectedYear}</span>
-                                        <span className="stat-label">Fiscal Year</span>
+                                        <span className="stat-value">₹{(currentBudget.capitalExpenditure / 100000).toFixed(2)}L Cr</span>
+                                        <span className="stat-label">Capital Exp.</span>
                                     </div>
                                 </div>
 
                                 <div className="hero-stat-small">
-                                    <div className="stat-icon">🏛️</div>
+                                    <div className="stat-icon"><Landmark size={24} className="text-purple-400" /></div>
                                     <div className="stat-info">
                                         <span className="stat-value">{currentBudget.sectors.length}</span>
                                         <span className="stat-label">Sectors</span>
@@ -149,7 +147,7 @@ export default function HeroSection() {
                                 </div>
 
                                 <div className="hero-stat-small">
-                                    <div className="stat-icon">📈</div>
+                                    <div className="stat-icon"><TrendingDown size={24} className="text-emerald-400" /></div>
                                     <div className="stat-info">
                                         <span className="stat-value">{currentBudget.fiscalDeficit.percentGDP}%</span>
                                         <span className="stat-label">Fiscal Deficit</span>
@@ -166,9 +164,9 @@ export default function HeroSection() {
                 {/* Where Every ₹100 Goes */}
                 <div className="rupee-breakdown">
                     <h3 className="breakdown-title">
-                        <span className="title-icon">💰</span>
+                        <span className="title-icon"><CircleDollarSign className="text-emerald-400" size={28} /></span>
                         Where Every ₹100 Goes
-                        <span className="breakdown-subtitle">(vs Last Year)</span>
+                        <span className="breakdown-subtitle">(Paise change vs Last Year)</span>
                     </h3>
 
                     <div className="breakdown-bars">
@@ -188,9 +186,12 @@ export default function HeroSection() {
                                         changeText = `${diff > 0 ? '↑' : '↓'} ${Math.abs(diff).toFixed(2)}p`;
                                         changeClass = diff > 0 ? 'positive' : 'negative';
                                     } else {
-                                        changeText = '=';
+                                        changeText = '= 0.00p';
                                         changeClass = 'neutral';
                                     }
+                                } else {
+                                    changeText = '-';
+                                    changeClass = 'neutral';
                                 }
                             }
 

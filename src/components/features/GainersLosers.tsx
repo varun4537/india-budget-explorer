@@ -1,5 +1,7 @@
 import { useBudget } from '../../context/BudgetContext';
 import { formatCurrency, formatPercent } from '../../utils/formatters';
+import { BarChart3, Rocket, TrendingDown } from 'lucide-react';
+import './GainersLosers.css';
 import './GainersLosers.css';
 
 export default function GainersLosers() {
@@ -9,7 +11,7 @@ export default function GainersLosers() {
         <section className="gainers-losers">
             <div className="section-header">
                 <h2 className="section-title">
-                    <span className="title-icon">📊</span>
+                    <span className="title-icon"><BarChart3 size={24} className="text-secondary" /></span>
                     Budget Winners & Losers
                 </h2>
                 <p className="section-subtitle">
@@ -21,7 +23,7 @@ export default function GainersLosers() {
                 {/* Gainers */}
                 <div className="gl-column gl-gainers">
                     <h3 className="gl-column-title">
-                        <span className="gl-icon">🚀</span>
+                        <span className="gl-icon"><Rocket size={20} className="text-emerald-400" /></span>
                         Top Gainers
                     </h3>
 
@@ -64,7 +66,7 @@ export default function GainersLosers() {
                 {/* Losers */}
                 <div className="gl-column gl-losers">
                     <h3 className="gl-column-title">
-                        <span className="gl-icon">📉</span>
+                        <span className="gl-icon"><TrendingDown size={20} className="text-rose-400" /></span>
                         Reduced Allocations
                     </h3>
 

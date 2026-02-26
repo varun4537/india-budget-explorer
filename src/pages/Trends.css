@@ -55,9 +55,17 @@
 /* Chart Card */
 .chart-card {
     background: var(--bg-card);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* very subtle outer edge */
+    border-radius: var(--radius-xl);
     padding: var(--space-4);
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: filter 0.3s ease;
+}
+
+.chart-card:hover {
+    filter: brightness(1.1);
 }
 
 @media (min-width: 768px) {

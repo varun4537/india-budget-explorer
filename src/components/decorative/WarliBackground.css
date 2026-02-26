@@ -1,0 +1,46 @@
+/* Warli Background Scene — Hero panorama */
+
+.warli-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.warli-bg-scene {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    color: var(--accent-gold, #c85a3a);
+    opacity: 0.045;
+    animation: warli-bg-drift 60s linear infinite;
+    will-change: transform;
+}
+
+@keyframes warli-bg-drift {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .warli-bg-scene {
+        animation: none;
+        width: 100%;
+    }
+}
+
+/* Hide on mobile — save rendering cost */
+@media (max-width: 768px) {
+    .warli-bg {
+        display: none;
+    }
+}

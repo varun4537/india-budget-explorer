@@ -15,6 +15,7 @@ import Glossary from './pages/Glossary';
 // BudgetBuddy temporarily paused
 // import BudgetBuddy from './pages/BudgetBuddy';
 import './App.css';
+import WarliDivider from './components/decorative/WarliDivider';
 
 // ScrollToTop component - resets scroll position on route change
 function ScrollToTop() {
@@ -80,6 +81,7 @@ function AppContent() {
         </Routes>
       </main>
       <footer className="footer">
+        <WarliDivider pattern="village" count={10} className="footer-warli" />
         <div className="container">
           <div className="footer-content">
             <div className="footer-brand">

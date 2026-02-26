@@ -91,6 +91,7 @@ export default function GlobalSearch({ isOpen, onClose }) {
                         className="search-input"
                         placeholder="Search for sectors, schemes, or topics..."
                         value={query}
+                        aria-label="Search budget data"
                         onChange={(e) => setQuery(e.target.value)}
                     />
                     <button className="close-btn" onClick={onClose} aria-label="Close search">

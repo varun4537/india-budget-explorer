@@ -1,0 +1,43 @@
+/* Madhubani Corner Ornament Styles */
+
+.madhubani-corner {
+    position: absolute;
+    color: var(--accent-gold, #c85a3a);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Position in parent's corners */
+.madhubani-top-left {
+    top: 4px;
+    left: 4px;
+}
+
+.madhubani-top-right {
+    top: 4px;
+    right: 4px;
+}
+
+.madhubani-bottom-right {
+    bottom: 4px;
+    right: 4px;
+}
+
+.madhubani-bottom-left {
+    bottom: 4px;
+    left: 4px;
+}
+
+/* Show more on hover */
+*:hover>.madhubani-corner {
+    opacity: 0.18;
+}
+
+/* Hide on mobile — too small to appreciate */
+@media (max-width: 768px) {
+    .madhubani-corner {
+        display: none;
+    }
+}

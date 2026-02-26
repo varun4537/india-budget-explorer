@@ -1,21 +1,25 @@
 import { useNavigate } from 'react-router-dom';
+import WarliDivider from '../components/decorative/WarliDivider';
+import MadhubaniCorner from '../components/decorative/MadhubaniCorner';
 import { useBudget } from '../context/BudgetContext';
 import HeroSection from '../components/features/HeroSection';
 import GainersLosers from '../components/features/GainersLosers';
 import TaxCalculator from '../components/features/TaxCalculator';
 import SectorCard from '../components/ui/SectorCard';
+import ChartWrapper from '../components/ui/ChartWrapper';
+import ShareButton from '../components/ui/ShareButton';
 import SectorPieChart from '../components/charts/SectorPieChart';
 import TrendLineChart from '../components/charts/TrendLineChart';
-import { getRevenueSources, getBudgetDocuments, getQuickFacts, getEconomicIndicators, INDIA_POPULATION } from '../data';
+import { getRevenueSources, getBudgetDocuments, getQuickFacts, getEconomicIndicators, getTotalBudgetTrend, INDIA_POPULATION } from '../data';
 import { formatCurrency } from '../utils/formatters';
 import { formatCurrency as formatCurrencyImport } from '../utils/formatters';
 import {
     Heart, BookOpen, Shield, Home, TreePine, Truck,
     TrendingUp, TrendingDown, ArrowRight, Scale, Calculator,
     Bot, FileText, Landmark, DollarSign, Wallet, PieChart,
-    BarChart3, Download, ExternalLink, ChevronRight,
-    Lightbulb, Rocket, Calendar, User, Target, TrendingUp as TrendUp,
-    BarChart, PieChart as ChartPie, Sparkles, Building2
+    BarChart3, Download, ExternalLink, ChevronRight, Globe,
+    Lightbulb, Rocket, Calendar, User, Users, Target, TrendingUp as TrendUp,
+    BarChart, PieChart as ChartPie, Sparkles, Building2, Compass, Zap, Banknote, ClipboardList
 } from 'lucide-react';
 import './Dashboard.css';
 
@@ -88,7 +92,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">👤</span>
+                            <span className="title-icon"><Users className="text-indigo-400" size={28} /></span>
                             What Every Indian Gets
                         </h2>
                         <p className="section-subtitle">
@@ -127,12 +131,14 @@ export default function Dashboard() {
                 </div>
             </section>
 
+            <WarliDivider pattern="village" count={8} />
+
             {/* Explore by Category */}
             <section className="dashboard-section section-explore">
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">🧭</span>
+                            <span className="title-icon"><Compass className="text-orange-400" size={28} /></span>
                             Explore the Budget
                         </h2>
                         <p className="section-subtitle">
@@ -145,6 +151,8 @@ export default function Dashboard() {
                             className="explore-card explore-trends"
                             onClick={() => navigate('/trends')}
                         >
+                            <MadhubaniCorner position="top-right" size={45} />
+                            <MadhubaniCorner position="bottom-left" size={45} />
                             <div className="explore-icon"><TrendingUp size={40} /></div>
                             <h3 className="explore-title">Spending Trends</h3>
                             <p className="explore-desc">See how budget allocations have changed over the years</p>
@@ -155,6 +163,8 @@ export default function Dashboard() {
                             className="explore-card explore-compare"
                             onClick={() => navigate('/compare')}
                         >
+                            <MadhubaniCorner position="top-right" size={45} />
+                            <MadhubaniCorner position="bottom-left" size={45} />
                             <div className="explore-icon"><Scale size={40} /></div>
                             <h3 className="explore-title">Compare Years</h3>
                             <p className="explore-desc">Compare budget allocations between different fiscal years</p>
@@ -165,6 +175,8 @@ export default function Dashboard() {
                             className="explore-card explore-calculator"
                             onClick={() => navigate('/calculator')}
                         >
+                            <MadhubaniCorner position="top-right" size={45} />
+                            <MadhubaniCorner position="bottom-left" size={45} />
                             <div className="explore-icon"><Calculator size={40} /></div>
                             <h3 className="explore-title">Your Tax Impact</h3>
                             <p className="explore-desc">Calculate how the budget affects your taxes</p>
@@ -189,7 +201,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">⚡</span>
+                            <span className="title-icon"><Zap className="text-yellow-400" size={28} /></span>
                             Quick Insights
                         </h2>
                         <p className="section-subtitle">
@@ -217,7 +229,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">🏛️</span>
+                            <span className="title-icon"><Building2 className="text-slate-400" size={28} /></span>
                             Budget Composition
                         </h2>
                         <p className="section-subtitle">
@@ -227,11 +239,13 @@ export default function Dashboard() {
 
                     <div className="composition-grid">
                         <div className="chart-panel">
-                            <SectorPieChart
-                                data={currentBudget.sectors}
-                                innerRadius={70}
-                                outerRadius={120}
-                            />
+                            <ChartWrapper title="Sector Allocation">
+                                <SectorPieChart
+                                    data={currentBudget.sectors}
+                                    innerRadius={70}
+                                    outerRadius={120}
+                                />
+                            </ChartWrapper>
                         </div>
 
                         <div className="sectors-grid">
@@ -254,7 +268,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">💵</span>
+                            <span className="title-icon"><Banknote className="text-green-400" size={28} /></span>
                             Where the Money Comes From
                         </h2>
                         <p className="section-subtitle">
@@ -303,12 +317,14 @@ export default function Dashboard() {
                 </div>
             </section>
 
+            <WarliDivider pattern="village" count={7} />
+
             {/* Economic Indicators */}
             <section className="dashboard-section">
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">📊</span>
+                            <span className="title-icon"><BarChart3 className="text-blue-400" size={28} /></span>
                             Key Economic Indicators
                         </h2>
                         <p className="section-subtitle">
@@ -358,7 +374,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">📈</span>
+                            <span className="title-icon"><TrendingUp className="text-emerald-400" size={28} /></span>
                             5-Year Budget Trend
                         </h2>
                         <p className="section-subtitle">
@@ -366,19 +382,21 @@ export default function Dashboard() {
                         </p>
                     </div>
 
-                    <div className="trend-chart-wrapper">
-                        <TrendLineChart
-                            data={trendData}
-                            lines={[
-                                { dataKey: 'total', name: 'Total Budget', color: '#3b82f6' }
-                            ]}
-                            height={350}
-                        />
-                    </div>
+                    <ChartWrapper title="5-Year Budget Trend">
+                        <div className="trend-chart-wrapper">
+                            <TrendLineChart
+                                data={trendData}
+                                lines={[
+                                    { dataKey: 'total', name: 'Total Budget', color: '#3b82f6' }
+                                ]}
+                                height={350}
+                            />
+                        </div>
+                    </ChartWrapper>
 
                     <div className="trend-highlights">
                         <div className="highlight-card">
-                            <span className="highlight-icon">🚀</span>
+                            <span className="highlight-icon"><Rocket className="text-purple-400" size={24} /></span>
                             <div className="highlight-content">
                                 <span className="highlight-value">
                                     {((budgetTrend[budgetTrend.length - 1].total / budgetTrend[0].total - 1) * 100).toFixed(0)}%
@@ -388,7 +406,7 @@ export default function Dashboard() {
                         </div>
 
                         <div className="highlight-card">
-                            <span className="highlight-icon">📊</span>
+                            <span className="highlight-icon"><BarChart3 className="text-blue-400" size={24} /></span>
                             <div className="highlight-content">
                                 <span className="highlight-value">
                                     ₹{((budgetTrend[budgetTrend.length - 1].total - budgetTrend[0].total) / 100000).toFixed(2)}L Cr
@@ -398,7 +416,7 @@ export default function Dashboard() {
                         </div>
 
                         <div className="highlight-card">
-                            <span className="highlight-icon">📅</span>
+                            <span className="highlight-icon"><Calendar className="text-orange-400" size={24} /></span>
                             <div className="highlight-content">
                                 <span className="highlight-value">
                                     {(Math.pow(budgetTrend[budgetTrend.length - 1].total / budgetTrend[0].total, 1 / 4) * 100 - 100).toFixed(1)}%
@@ -407,8 +425,16 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'var(--space-4)' }}>
+                        <ShareButton
+                            text={`India's budget grew ${((budgetTrend[budgetTrend.length - 1].total / budgetTrend[0].total - 1) * 100).toFixed(0)}% over the last 5 years, from ₹${(budgetTrend[0].total / 100000).toFixed(2)}L Cr to ₹${(budgetTrend[budgetTrend.length - 1].total / 100000).toFixed(2)}L Cr`}
+                            label="Share this trend"
+                        />
+                    </div>
                 </div>
             </section>
+
+            <WarliDivider pattern="mixed" count={5} />
 
             {/* Tax Calculator */}
             <TaxCalculator />
@@ -418,7 +444,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">📥</span>
+                            <span className="title-icon"><Download className="text-teal-400" size={28} /></span>
                             Download Budget Documents
                         </h2>
                         <p className="section-subtitle">
@@ -454,7 +480,7 @@ export default function Dashboard() {
                             rel="noopener noreferrer"
                             className="btn btn-outline"
                         >
-                            🌐 Visit Official India Budget Portal
+                            <Globe size={18} className="inline-block mr-2" /> Visit Official India Budget Portal
                         </a>
                     </div>
                 </div>
@@ -465,7 +491,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">✨</span>
+                            <span className="title-icon"><Sparkles className="text-amber-400" size={28} /></span>
                             Budget Highlights
                         </h2>
                         <p className="section-subtitle">
@@ -493,7 +519,7 @@ export default function Dashboard() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">📋</span>
+                            <span className="title-icon"><ClipboardList className="text-gray-400" size={28} /></span>
                             All Sectors
                         </h2>
                         <p className="section-subtitle">

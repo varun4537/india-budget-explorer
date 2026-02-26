@@ -1,6 +1,7 @@
 import { useBudget } from '../context/BudgetContext';
 import SectorCard from '../components/ui/SectorCard';
 import SectorPieChart from '../components/charts/SectorPieChart';
+import { Building2 } from 'lucide-react';
 import './Sectors.css';
 
 export default function Sectors() {
@@ -19,7 +20,7 @@ export default function Sectors() {
             <div className="container">
                 <div className="page-header">
                     <h1 className="page-title">
-                        <span className="title-icon">🏛️</span>
+                        <span className="title-icon"><Building2 className="text-slate-400" size={28} /></span>
                         Budget Sectors
                     </h1>
                     <p className="page-subtitle">
@@ -32,8 +33,8 @@ export default function Sectors() {
                     <div className="overview-chart">
                         <SectorPieChart
                             data={currentBudget.sectors}
-                            innerRadius={80}
-                            outerRadius={140}
+                            innerRadius={65}
+                            outerRadius={120}
                         />
                     </div>
 
@@ -71,6 +72,6 @@ export default function Sectors() {
                     </div>
                 </section>
             </div>
-        </div>
+        </div >
     );
 }

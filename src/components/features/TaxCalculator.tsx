@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { useBudget } from '../../context/BudgetContext';
 import { formatCurrency, formatPerCapita } from '../../utils/formatters';
 import { getPerCapita } from '../../data';
+import { CircleDollarSign, PartyPopper } from 'lucide-react';
 import './TaxCalculator.css';
 
 const TAX_SLABS = [
@@ -51,9 +52,22 @@ export default function TaxCalculator() {
 
     return (
         <section className="tax-calculator">
+            {/* Tribal geometric border band */}
+            <div className="tribal-border-band" aria-hidden="true">
+                <svg viewBox="0 0 1200 12" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="tribal-diamond" x="0" y="0" width="24" height="12" patternUnits="userSpaceOnUse">
+                            <path d="M12 0 L24 6 L12 12 L0 6 Z" fill="none" stroke="currentColor" strokeWidth="1" />
+                            <circle cx="12" cy="6" r="1.5" fill="currentColor" opacity="0.6" />
+                        </pattern>
+                    </defs>
+                    <rect width="1200" height="12" fill="url(#tribal-diamond)" />
+                </svg>
+            </div>
+
             <div className="calc-header">
                 <h2 className="calc-title">
-                    <span className="title-icon">💰</span>
+                    <span className="title-icon"><CircleDollarSign className="text-emerald-400" size={28} /></span>
                     Your Tax, Your Contribution
                 </h2>
                 <p className="calc-subtitle">
@@ -71,6 +85,7 @@ export default function TaxCalculator() {
                             type="text"
                             className="income-input"
                             value={formatIncome(income)}
+                            aria-label="Annual income in rupees"
                             onChange={(e) => {
                                 const value = parseInt(e.target.value.replace(/,/g, '')) || 0;
                                 setIncome(Math.min(value, 100000000));
@@ -85,6 +100,7 @@ export default function TaxCalculator() {
                         max="5000000"
                         step="50000"
                         value={income}
+                        aria-label="Adjust annual income"
                         onChange={(e) => setIncome(parseInt(e.target.value))}
                     />
 
@@ -94,6 +110,7 @@ export default function TaxCalculator() {
                                 key={preset.value}
                                 className={`preset-btn ${income === preset.value ? 'active' : ''}`}
                                 onClick={() => setIncome(preset.value)}
+                                aria-pressed={income === preset.value}
                             >
                                 {preset.label}
                             </button>
@@ -148,7 +165,7 @@ export default function TaxCalculator() {
 
                     {taxAmount === 0 && (
                         <div className="no-tax-message">
-                            <span className="no-tax-icon">🎉</span>
+                            <span className="no-tax-icon"><PartyPopper className="text-purple-400" size={48} /></span>
                             <p>Great news! With an income of ₹{formatIncome(income)}, you fall under the tax-free slab in the new tax regime.</p>
                         </div>
                     )}

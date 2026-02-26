@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useBudget } from '../../context/BudgetContext';
 import GlobalSearch from './GlobalSearch';
 import './Header.css';
-import { LayoutDashboard, TrendingUp, Landmark, Scale, Calculator, Sparkles, Book, Search } from 'lucide-react';
+import { LayoutDashboard, TrendingUp, Landmark, Scale, Calculator, Sparkles, Book, Search, Sun, Moon } from 'lucide-react';
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -80,7 +80,7 @@ export default function Header() {
                         onClick={toggleTheme}
                         aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
                     >
-                        {theme === 'dark' ? '☀️' : '🌙'}
+                        {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
                     </button>
 
                     {/* Mobile Menu Button */}

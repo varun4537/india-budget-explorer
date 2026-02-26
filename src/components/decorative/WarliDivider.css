@@ -10,6 +10,11 @@
     opacity: 0.7;
 }
 
+.warli-village {
+    opacity: 0.65;
+    gap: var(--space-2);
+}
+
 .warli-line {
     flex: 1;
     max-width: 200px;
@@ -23,11 +28,16 @@
     gap: var(--space-3);
 }
 
+.warli-village .warli-figures {
+    gap: var(--space-4);
+}
+
 .warli-figure {
     color: var(--accent-gold, #c85a3a);
     opacity: 0.8;
     transition: all 0.3s ease;
     animation: warli-float-in 0.8s ease-out backwards;
+    will-change: transform;
 }
 
 .warli-figure:nth-child(1) {
@@ -50,6 +60,34 @@
     animation-delay: 0.5s;
 }
 
+.warli-figure:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.warli-figure:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.warli-figure:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.warli-figure:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+.warli-figure:nth-child(10) {
+    animation-delay: 1.0s;
+}
+
+.warli-figure:nth-child(11) {
+    animation-delay: 1.1s;
+}
+
+.warli-figure:nth-child(12) {
+    animation-delay: 1.2s;
+}
+
 .warli-figure:hover {
     opacity: 1;
     transform: translateY(-4px);
@@ -63,9 +101,269 @@
     transform: scaleX(-1) translateY(-4px);
 }
 
+/* ============================================
+   ANIMATED FIGURES
+   ============================================ */
+
+/* Dancer — rhythmic bounce */
+.warli-dancer {
+    animation: warli-float-in 0.8s ease-out backwards, warli-dance 1.2s ease-in-out infinite;
+}
+
+@keyframes warli-dance {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-3px) rotate(2deg);
+    }
+
+    50% {
+        transform: translateY(-1px);
+    }
+
+    75% {
+        transform: translateY(-3px) rotate(-2deg);
+    }
+}
+
+.warli-dancer.warli-flip {
+    animation: warli-float-in 0.8s ease-out backwards, warli-dance-flip 1.2s ease-in-out infinite;
+}
+
+@keyframes warli-dance-flip {
+
+    0%,
+    100% {
+        transform: scaleX(-1) translateY(0);
+    }
+
+    25% {
+        transform: scaleX(-1) translateY(-3px) rotate(-2deg);
+    }
+
+    50% {
+        transform: scaleX(-1) translateY(-1px);
+    }
+
+    75% {
+        transform: scaleX(-1) translateY(-3px) rotate(2deg);
+    }
+}
+
+/* Walker — stepping gait */
+.warli-walker {
+    animation: warli-float-in 0.8s ease-out backwards, warli-walk 2s ease-in-out infinite;
+}
+
+@keyframes warli-walk {
+
+    0%,
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: translateX(2px) translateY(-1px);
+    }
+
+    50% {
+        transform: translateX(4px) translateY(0);
+    }
+
+    75% {
+        transform: translateX(2px) translateY(-1px);
+    }
+}
+
+.warli-walker.warli-flip {
+    animation: warli-float-in 0.8s ease-out backwards, warli-walk-flip 2s ease-in-out infinite;
+}
+
+@keyframes warli-walk-flip {
+
+    0%,
+    100% {
+        transform: scaleX(-1) translateX(0) translateY(0);
+    }
+
+    25% {
+        transform: scaleX(-1) translateX(2px) translateY(-1px);
+    }
+
+    50% {
+        transform: scaleX(-1) translateX(4px) translateY(0);
+    }
+
+    75% {
+        transform: scaleX(-1) translateX(2px) translateY(-1px);
+    }
+}
+
+/* Farmer — rocking plow motion */
+.warli-farmer {
+    animation: warli-float-in 0.8s ease-out backwards, warli-plow 3s ease-in-out infinite;
+}
+
+@keyframes warli-plow {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+.warli-farmer.warli-flip {
+    animation: warli-float-in 0.8s ease-out backwards, warli-plow-flip 3s ease-in-out infinite;
+}
+
+@keyframes warli-plow-flip {
+
+    0%,
+    100% {
+        transform: scaleX(-1) rotate(0deg);
+    }
+
+    50% {
+        transform: scaleX(-1) rotate(-3deg);
+    }
+}
+
+/* Tree — gentle breeze sway */
+.warli-tree {
+    transform-origin: bottom center;
+    animation: warli-float-in 0.8s ease-out backwards, warli-sway 4s ease-in-out infinite;
+}
+
+@keyframes warli-sway {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    33% {
+        transform: rotate(2deg);
+    }
+
+    66% {
+        transform: rotate(-2deg);
+    }
+}
+
+/* Bull — head bob */
+.warli-bull {
+    animation: warli-float-in 0.8s ease-out backwards, warli-graze 3s ease-in-out infinite;
+}
+
+@keyframes warli-graze {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(2px);
+    }
+}
+
+.warli-bull.warli-flip {
+    animation: warli-float-in 0.8s ease-out backwards, warli-graze-flip 3s ease-in-out infinite;
+}
+
+@keyframes warli-graze-flip {
+
+    0%,
+    100% {
+        transform: scaleX(-1) translateY(0);
+    }
+
+    50% {
+        transform: scaleX(-1) translateY(2px);
+    }
+}
+
+/* Bird — wing flap + hover */
+.warli-bird {
+    animation: warli-float-in 0.8s ease-out backwards, warli-flap 1.5s ease-in-out infinite;
+}
+
+@keyframes warli-flap {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.warli-bird.warli-flip {
+    animation: warli-float-in 0.8s ease-out backwards, warli-flap-flip 1.5s ease-in-out infinite;
+}
+
+@keyframes warli-flap-flip {
+
+    0%,
+    100% {
+        transform: scaleX(-1) translateY(0);
+    }
+
+    50% {
+        transform: scaleX(-1) translateY(-3px);
+    }
+}
+
+/* Sun — slow rotation */
+.warli-sun {
+    animation: warli-float-in 0.8s ease-out backwards, warli-sun-spin 20s linear infinite;
+}
+
+@keyframes warli-sun-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hut — static, gentle pulse glow */
+.warli-hut {
+    animation: warli-float-in 0.8s ease-out backwards, warli-hut-glow 4s ease-in-out infinite;
+}
+
+@keyframes warli-hut-glow {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.95;
+    }
+}
+
+/* Geometric spinner */
 .warli-geometric {
     animation: warli-spin 20s linear infinite;
 }
+
+/* ============================================
+   BASE ANIMATIONS
+   ============================================ */
 
 @keyframes warli-float-in {
     from {
@@ -104,29 +402,82 @@
     opacity: 0.8;
 }
 
-/* Reduced motion */
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
 @media (prefers-reduced-motion: reduce) {
     .warli-figure {
-        animation: none;
+        animation: none !important;
     }
 
+    .warli-dancer,
+    .warli-walker,
+    .warli-farmer,
+    .warli-tree,
+    .warli-bull,
+    .warli-bird,
+    .warli-sun,
+    .warli-hut,
     .warli-geometric {
-        animation: none;
+        animation: none !important;
     }
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1023px) {
+    .warli-village .warli-figures {
+        gap: var(--space-3);
+    }
+
+    /* Hide figures beyond the 7th on tablet */
+    .warli-village .warli-figure:nth-child(n+8) {
+        display: none;
+    }
+}
+
+/* Mobile */
 @media (max-width: 640px) {
     .warli-figures {
         gap: var(--space-2);
     }
 
     .warli-figure {
+        width: 20px;
+        height: 30px;
+    }
+
+    .warli-bull {
+        width: 28px;
+        height: 20px;
+    }
+
+    .warli-tree {
         width: 24px;
-        height: 36px;
+        height: 34px;
     }
 
     .warli-line {
-        max-width: 80px;
+        max-width: 60px;
+    }
+
+    /* On mobile, hide figures beyond the 5th */
+    .warli-village .warli-figure:nth-child(n+6) {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Very small screens: only show 3 figures */
+    .warli-village .warli-figure:nth-child(n+4) {
+        display: none;
+    }
+
+    .warli-line {
+        max-width: 40px;
     }
 }

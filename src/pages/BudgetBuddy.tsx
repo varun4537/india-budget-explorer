@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { chatWithBudgetBuddy, getSuggestedQuestions, getQuickStats } from '../services/geminiService';
 import ChatMessage from '../components/chat/ChatMessage';
+import { Bot, MessageSquare, AlertTriangle } from 'lucide-react';
 import './BudgetBuddy.css';
 
 export default function BudgetBuddy() {
@@ -62,7 +63,7 @@ export default function BudgetBuddy() {
             <div className="container">
                 {/* Header */}
                 <div className="buddy-header">
-                    <div className="buddy-avatar">🤖</div>
+                    <div className="buddy-avatar"><Bot className="text-blue-400" size={40} /></div>
                     <div className="buddy-info">
                         <h1 className="buddy-title">Budget Buddy</h1>
                         <p className="buddy-subtitle">
@@ -97,7 +98,7 @@ export default function BudgetBuddy() {
                     <div className="messages-container">
                         {messages.length === 0 ? (
                             <div className="welcome-state">
-                                <div className="welcome-icon">💬</div>
+                                <div className="welcome-icon"><MessageSquare className="text-blue-400" size={48} /></div>
                                 <h2 className="welcome-title">Ask me about India's Budget!</h2>
                                 <p className="welcome-text">
                                     I can help you understand budget allocations, compare sectors,
@@ -127,7 +128,7 @@ export default function BudgetBuddy() {
 
                                 {isLoading && (
                                     <div className="message assistant-message loading-message">
-                                        <div className="message-avatar">🤖</div>
+                                        <div className="message-avatar"><Bot className="text-blue-400" size={24} /></div>
                                         <div className="message-content">
                                             <div className="typing-indicator">
                                                 <span></span>
@@ -146,7 +147,7 @@ export default function BudgetBuddy() {
                     {/* Error Display */}
                     {error && (
                         <div className="error-banner">
-                            <span className="error-icon">⚠️</span>
+                            <span className="error-icon"><AlertTriangle size={20} /></span>
                             <span>{error}</span>
                             <button
                                 className="error-dismiss"

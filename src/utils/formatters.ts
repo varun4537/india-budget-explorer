@@ -2,11 +2,11 @@
 
 /**
  * Format amount to Indian currency format with Crore/Lakh Crore
- * @param {number} amount - Amount in Crore
- * @param {boolean} showSymbol - Whether to show ₹ symbol
- * @returns {string} Formatted string
+ * @param amount - Amount in Crore
+ * @param showSymbol - Whether to show ₹ symbol
+ * @returns Formatted string
  */
-export function formatCurrency(amount, showSymbol = true) {
+export function formatCurrency(amount: number, showSymbol: boolean = true): string {
     const symbol = showSymbol ? '₹' : '';
 
     if (amount >= 100000) {
@@ -22,10 +22,10 @@ export function formatCurrency(amount, showSymbol = true) {
 
 /**
  * Format amount for compact display
- * @param {number} amount - Amount in Crore
- * @returns {string} Formatted string
+ * @param amount - Amount in Crore
+ * @returns Formatted string
  */
-export function formatCompact(amount) {
+export function formatCompact(amount: number): string {
     if (amount >= 100000) {
         return `${(amount / 100000).toFixed(1)}L`;
     } else if (amount >= 1000) {
@@ -36,31 +36,31 @@ export function formatCompact(amount) {
 
 /**
  * Format percentage with sign
- * @param {number} value - Percentage value
- * @param {boolean} showSign - Whether to show + for positive
- * @returns {string} Formatted percentage
+ * @param value - Percentage value
+ * @param showSign - Whether to show + for positive
+ * @returns Formatted percentage
  */
-export function formatPercent(value, showSign = true) {
-    const num = parseFloat(value);
+export function formatPercent(value: number | string, showSign: boolean = true): string {
+    const num = parseFloat(String(value));
     const sign = showSign && num > 0 ? '+' : '';
     return `${sign}${num.toFixed(1)}%`;
 }
 
 /**
  * Format number in Indian numbering system
- * @param {number} num - Number to format
- * @returns {string} Formatted number
+ * @param num - Number to format
+ * @returns Formatted number
  */
-export function formatIndianNumber(num) {
+export function formatIndianNumber(num: number): string {
     return num.toLocaleString('en-IN');
 }
 
 /**
  * Format per capita amount
- * @param {number} amount - Amount in rupees
- * @returns {string} Formatted string
+ * @param amount - Amount in rupees
+ * @returns Formatted string
  */
-export function formatPerCapita(amount) {
+export function formatPerCapita(amount: number): string {
     if (amount >= 100000) {
         return `₹${(amount / 100000).toFixed(1)} Lakh`;
     } else if (amount >= 1000) {
@@ -71,30 +71,39 @@ export function formatPerCapita(amount) {
 
 /**
  * Convert fiscal year to display format
- * @param {string} fy - Fiscal year like "2024-25"
- * @returns {string} Display format like "FY 2024-25"
+ * @param fy - Fiscal year like "2024-25"
+ * @returns Display format like "FY 2024-25"
  */
-export function formatFiscalYear(fy) {
+export function formatFiscalYear(fy: string): string {
     return `FY ${fy}`;
 }
 
 /**
  * Get short fiscal year
- * @param {string} fy - Fiscal year like "2024-25"
- * @returns {string} Short format like "24-25"
+ * @param fy - Fiscal year like "2024-25"
+ * @returns Short format like "24-25"
  */
-export function formatFYShort(fy) {
+export function formatFYShort(fy: string): string {
     const [start, end] = fy.split('-');
     return `${start.slice(2)}-${end}`;
 }
 
+export interface ChangeResult {
+    absolute: number;
+    percent: number;
+    formatted: string;
+    isPositive: boolean;
+    isNegative: boolean;
+    className: string;
+}
+
 /**
  * Calculate and format change
- * @param {number} current - Current value
- * @param {number} previous - Previous value
- * @returns {object} Change details
+ * @param current - Current value
+ * @param previous - Previous value
+ * @returns Change details
  */
-export function calculateChange(current, previous) {
+export function calculateChange(current: number, previous: number): ChangeResult {
     const absoluteChange = current - previous;
     const percentChange = previous ? ((absoluteChange / previous) * 100) : 0;
 
@@ -109,13 +118,19 @@ export function calculateChange(current, previous) {
     };
 }
 
+export interface HundredRupeeBreakdown {
+    amount: string;
+    display: string;
+    description: string;
+}
+
 /**
  * Format allocation as fraction of 100
- * @param {number} allocation - Sector allocation
- * @param {number} total - Total budget
- * @returns {object} Breakdown info
+ * @param allocation - Sector allocation
+ * @param total - Total budget
+ * @returns Breakdown info
  */
-export function getHundredRupeeBreakdown(allocation, total) {
+export function getHundredRupeeBreakdown(allocation: number, total: number): HundredRupeeBreakdown {
     const perHundred = (allocation / total) * 100;
     return {
         amount: perHundred.toFixed(2),

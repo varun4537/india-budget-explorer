@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import { User, Bot } from 'lucide-react';
 import './ChatMessage.css';
 
 // Colors for charts
@@ -151,7 +152,7 @@ export default function ChatMessage({ message }) {
     return (
         <div className={`message ${isUser ? 'user-message' : 'assistant-message'}`}>
             <div className="message-avatar">
-                {isUser ? '👤' : '🤖'}
+                {isUser ? <User size={20} /> : <Bot className="text-blue-400" size={20} />}
             </div>
             <div className="message-content">
                 {renderedContent}

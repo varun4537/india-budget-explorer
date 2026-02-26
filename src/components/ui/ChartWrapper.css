@@ -1,0 +1,105 @@
+/* =============================================
+   CHART WRAPPER — Painting-frame style panel
+   ============================================= */
+
+.chart-wrapper {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid rgba(200, 140, 80, 0.2);
+    border-radius: var(--radius-xl);
+    padding: var(--space-5);
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-wrapper:hover {
+    border-color: rgba(200, 140, 80, 0.35);
+    box-shadow: 0 2px 16px rgba(200, 140, 80, 0.06);
+}
+
+@media (min-width: 768px) {
+    .chart-wrapper {
+        padding: var(--space-6);
+    }
+}
+
+/* Action Bar — top-right floating buttons */
+.chart-wrapper-actions {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    display: flex;
+    gap: var(--space-2);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: 10;
+}
+
+.chart-wrapper:hover .chart-wrapper-actions,
+.chart-wrapper:focus-within .chart-wrapper-actions {
+    opacity: 1;
+}
+
+/* Individual Action Button */
+.chart-action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--glass-bg, rgba(15, 23, 42, 0.85));
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.1));
+    border-radius: var(--radius-lg);
+    color: var(--text-secondary);
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.chart-action-btn:hover {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-color: var(--border-light);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.chart-action-btn:active {
+    transform: translateY(0);
+}
+
+/* Success state */
+.chart-action-btn.success {
+    color: var(--success);
+    border-color: var(--success);
+}
+
+/* Watermark — hidden by default, shown only during export */
+.chart-watermark {
+    display: none;
+    padding: 12px 20px;
+    background: var(--bg-primary, #0a0f1a);
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.03em;
+}
+
+.chart-watermark.visible {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.watermark-flag {
+    font-size: 14px;
+}
+
+.watermark-text {
+    opacity: 0.7;
+}

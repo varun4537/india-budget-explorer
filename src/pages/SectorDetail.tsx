@@ -5,6 +5,9 @@ import { getSectorDetails, getSectorTrend, getSchemeDetails } from '../data';
 import { formatCurrency, formatPercent } from '../utils/formatters';
 import TrendLineChart from '../components/charts/TrendLineChart';
 import { BarChart, Bar, XAxis, YAxis, Cell, ResponsiveContainer, Tooltip, LabelList } from 'recharts';
+import { TrendingUp, PieChart as PieChartIcon, Lightbulb, Link2 } from 'lucide-react';
+import ChartWrapper from '../components/ui/ChartWrapper';
+import ShareButton from '../components/ui/ShareButton';
 import './SectorDetail.css';
 
 // Helper to safely render icons that might be Lucide components or strings
@@ -208,7 +211,7 @@ export default function SectorDetail() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">📊</span>
+                            <span className="title-icon"><PieChartIcon className="text-blue-400" size={28} /></span>
                             Where the Money Goes
                         </h2>
                         <p className="section-subtitle">
@@ -296,7 +299,7 @@ export default function SectorDetail() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">📈</span>
+                            <span className="title-icon"><TrendingUp className="text-blue-400" size={28} /></span>
                             5-Year Trend
                         </h2>
                         <p className="section-subtitle">
@@ -304,13 +307,15 @@ export default function SectorDetail() {
                         </p>
                     </div>
 
-                    <div className="trend-chart-card">
-                        <TrendLineChart
-                            data={trend}
-                            lines={[{ dataKey: 'allocation', name: details.name, color: '#C75B39' }]}
-                            height={350}
-                        />
-                    </div>
+                    <ChartWrapper title={`${details.name} 5-Year Trend`}>
+                        <div className="trend-chart-card">
+                            <TrendLineChart
+                                data={trend}
+                                lines={[{ dataKey: 'allocation', name: details.name, color: '#C75B39' }]}
+                                height={350}
+                            />
+                        </div>
+                    </ChartWrapper>
 
                     <div className="trend-stats">
                         <div className="trend-stat">
@@ -334,6 +339,12 @@ export default function SectorDetail() {
                             <span className="trend-value">{formatCurrency(trend[trend.length - 1].allocation)}</span>
                         </div>
                     </div>
+                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'var(--space-3)' }}>
+                        <ShareButton
+                            text={`${details.name} budget: ₹${formatCurrency(currentSector.allocation, false)} in FY ${selectedYear} — ${((trend[trend.length - 1].allocation / trend[0].allocation - 1) * 100).toFixed(0)}% growth over 5 years`}
+                            label="Share"
+                        />
+                    </div>
                 </div>
             </section>
 
@@ -342,7 +353,7 @@ export default function SectorDetail() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">💡</span>
+                            <span className="title-icon"><Lightbulb className="text-yellow-400" size={28} /></span>
                             Key Insights
                         </h2>
                     </div>
@@ -379,7 +390,7 @@ export default function SectorDetail() {
                 <div className="container">
                     <div className="section-header">
                         <h2 className="section-title">
-                            <span className="title-icon">🔗</span>
+                            <span className="title-icon"><Link2 className="text-teal-400" size={28} /></span>
                             Explore Other Sectors
                         </h2>
                     </div>

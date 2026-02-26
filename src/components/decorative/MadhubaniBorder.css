@@ -1,0 +1,105 @@
+/* =============================================
+   MadhubaniBorder — Mithila painting-style frame
+   ============================================= */
+
+.madhubani-border {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    color: #d97757;
+    /* Crisp terracotta/saffron matching reference */
+    opacity: 0.85;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+/* ── Edge strips ── */
+.mb-edge {
+    position: absolute;
+    overflow: visible;
+}
+
+/* Top & bottom: full width, 10px tall */
+.mb-top {
+    top: 2px;
+    left: 14px;
+    right: 14px;
+    height: 10px;
+}
+
+.mb-bottom {
+    bottom: 2px;
+    left: 14px;
+    right: 14px;
+    height: 10px;
+}
+
+/* Left & right: full height, 10px wide */
+.mb-left {
+    left: 2px;
+    top: 14px;
+    bottom: 14px;
+    width: 10px;
+}
+
+.mb-right {
+    right: 2px;
+    top: 14px;
+    bottom: 14px;
+    width: 10px;
+}
+
+/* ── Corner flowers ── */
+.mb-corner {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+}
+
+.mb-corner-tl {
+    top: 1px;
+    left: 1px;
+}
+
+.mb-corner-tr {
+    top: 1px;
+    right: 1px;
+}
+
+.mb-corner-bl {
+    bottom: 1px;
+    left: 1px;
+}
+
+.mb-corner-br {
+    bottom: 1px;
+    right: 1px;
+}
+
+/* ── Hover reveal ── */
+.madhubani-border {
+    opacity: 0.8;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Parent hover intensifies */
+.chart-wrapper:hover .madhubani-border,
+.chart-card:hover .madhubani-border,
+.chart-panel:hover .madhubani-border,
+.overview-chart:hover .madhubani-border {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(217, 119, 87, 0.4));
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+    .madhubani-border {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .madhubani-border {
+        transition: none;
+    }
+}
