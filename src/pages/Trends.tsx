@@ -138,6 +138,9 @@ export default function Trends() {
                                             lines={[{ dataKey: 'allocation', name: sector.name, color: sector.color }]}
                                             height={150}
                                             showGrid={false}
+                                            margin={{ top: 10, right: 25, left: 10, bottom: 5 }}
+                                            yAxisWidth={35}
+                                            dotRadius={3}
                                         />
                                     </div>
 

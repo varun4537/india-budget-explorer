@@ -18,7 +18,10 @@ export default function TrendLineChart({
     xKey = 'year',
     showGrid = true,
     animated = true,
-    height = 300
+    height = 300,
+    margin = { top: 20, right: 30, left: 20, bottom: 10 },
+    yAxisWidth = 50,
+    dotRadius = 4
 }) {
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
@@ -61,7 +64,7 @@ export default function TrendLineChart({
             <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart
                     data={data}
-                    margin={{ top: 20, right: 30, left: 20, bottom: 10 }}
+                    margin={margin}
                 >
                     <defs>
                         {lines.map((line, index) => (
@@ -93,7 +96,7 @@ export default function TrendLineChart({
                         fontSize={12}
                         tickLine={false}
                         axisLine={false}
-                        width={50}
+                        width={yAxisWidth}
                     />
                     <Tooltip content={<CustomTooltip />} />
                     {lines.length > 1 && (
@@ -128,8 +131,8 @@ export default function TrendLineChart({
                             name={line.name || line.dataKey}
                             stroke={line.color || 'var(--primary)'}
                             strokeWidth={2.5}
-                            dot={{ r: 4, fill: line.color || 'var(--primary)', strokeWidth: 2, stroke: 'var(--bg-card)' }}
-                            activeDot={{ r: 7, strokeWidth: 3, stroke: 'var(--bg-card)', fill: line.color || 'var(--primary)' }}
+                            dot={{ r: dotRadius, fill: line.color || 'var(--primary)', strokeWidth: 2, stroke: 'var(--bg-card)' }}
+                            activeDot={{ r: dotRadius + 3, strokeWidth: 3, stroke: 'var(--bg-card)', fill: line.color || 'var(--primary)' }}
                             isAnimationActive={animated}
                             animationDuration={800}
                             animationEasing="ease-out"
